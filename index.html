@@ -41,7 +41,40 @@
 </head>
 
 <body>
+    <script>
 
+        function mySearchFunction() {
+            // Declare variables
+            var search_input, filter, ul, li, item, i, txtValue;
+            //user input
+            search_input = document.getElementById('searchBar1');
+            // Filter, makes search not case sensitive
+            filter = search_input.value.toUpperCase();
+            // Grabs the parent element by id
+            ul = document.getElementById("navigation1");
+            // Individual item on list
+            li = ul.getElementsByTagName("li");
+
+            // Treats lists items like an array, where each item can be accessed through      it's index
+            for (i = 0; i < li.length; i++) {
+                item = li[i];
+                // Iterate over each list item to see if the value of the input, ignoring         case, matches the inner text or inner html of the item.
+                txtValue = item.textContent || item.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    // Displays list items that are a match, and nothing if no match
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+            /*if (searchBar) {
+                searchBar.addEventListener('keyup', (e) => {
+                    console.log(searchBar);
+                    console.log(e);
+                });
+            }*/
+        }
+    </script>
     <div id="wrapper">
 
         <div class="container">
@@ -51,8 +84,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="big-title text-center">
-                            <h1>Your ThemeForest item Name</h1>
-                            <p class="lead">Your awesome theme / template documentation version 1.0</p>
+                            <h1>Robotick Documentation</h1>
+                            <p class="lead">Version 1.0</p>
                         </div>
                         <!-- end title -->
                     </div>
@@ -66,74 +99,189 @@
             <!-- end section -->
 
             <div class="row">
+                <!-- Search form -->
 
                 <div class="col-md-3">
-                    <nav class="docs-sidebar" data-spy="affix" data-offset-top="300" data-offset-bottom="200" role="navigation">
+                    <div id="searchWrapper">
+                        <input type="text" name="searchBar" id="searchBar1" placeholder="Search" onkeyup="mySearchFunction()" />
+                    </div>
+
+                    <nav id="navigation1" class="docs-sidebar" data-spy="affix" data-offset-top="300" data-offset-bottom="200" role="navigation">
+
+
+                        <!-- Search form 
+                        <form class="form-inline d-flex justify-content-center md-form form-sm mt-0">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search">
+                        </form>-->
+
                         <ul class="nav">
-                            <li><a href="#line1">Getting Started</a></li>
-                            <li><a href="#line2">How to Install WordPress</a></li>
-                            <li><a href="#line3">How to Install Theme</a></li>
-                            <li><a href="#line4">Necessary Plugins</a></li>
-                            <li><a href="#line5">Creating Blog Pages</a></li>
-                            <li><a href="#line6">Revolution Slider</a></li>
-                            <li><a href="#line7">How to Use Option Panel</a>
-                                <ul class="nav">
-                                    <li><a href="#line7_1">General Options</a></li>
-                                    <li><a href="#line7_2">Style Options</a></li>
-                                    <li><a href="#line7_3">Header Options</a></li>
-                                    <li><a href="#line7_4">Font Options</a></li>
-                                    <li><a href="#line7_5">Slider Options</a></li>
-                                    <li><a href="#line7_6">Page Options</a></li>
-                                    <li><a href="#line7_7">Import & Export</a></li>
-                                </ul>
+                            <li>
+                                <a href="#tut">Tutorial</a>
                             </li>
-                            <li><a href="#line8">Support Desk</a></li>
-                            <li><a href="#line9">Files & Sources</a></li>
-                            <li><a href="#line10">Version History (Changelog)</a></li>
-                            <li><a href="#line11">Copyright and license</a></li>
-                        </ul>
-                    </nav >
+                            <li>
+                                <a href="#line0">Introduction</a>
+                            </li>
+                            <li>
+                                <a href="#line1">Terminology</a>
+                                <ul class="nav">
+                                    <li>
+                                        <a href="#line1_1">Project</a>
+                                    </li>
+                                    <li>
+                                        <a href="#line1_2">Flow</a>
+                                    </li>
+                                    <li>
+                                        <a href="#line1_3">Flow List</a>
+                                    </li>
+                                    <li>
+                                        <a href="#line1_4">Flow Editor</a>
+                                    </li>
+                                    <li>
+                                        <a href="#line1_5">Components</a>
+                                    </li>
+                                    <li>
+                                        <a href="#line1_6">Triggering the Flow </a>
+                                    </li>
+                                </ul>
+
+                            </li>
+                            <li>
+                                <a href="#line7">Components</a>
+                                <ul class="nav">
+                                    <li>
+                                        <a href="#line7_1">DATABASE</a>
+                                    </li>
+                                    <li>
+                                        <a href="#line7_2">EMAIL</a>
+                                    </li>
+                                    <li>
+                                        <a href="#line7_3">DECISION</a>
+                                    </li>
+                                    <li>
+                                        <a href="#line7_4">BIP</a>
+                                    </li>
+                                    <li>
+                                        <a href="#line7_5">SMS</a>
+                                    </li>
+                                    <li>
+                                        <a href="#line7_6">FILE</a>
+                                    </li>
+                                    <li>
+                                        <a href="#line7_7">STRING</a>
+                                    </li>
+                                    <li>
+                                        <a href="#line7_8">OS</a>
+                                    </li>
+                                    <li>
+                                        <a href="#line7_9">DateTime</a>
+                                    </li>
+
+                                </ul>
+                                <li>
+                                    <a href="#trig">Triggering Components</a>
+                                    <ul class="nav">
+                                        <li>
+                                            <a href="#trig_1">DEPLOY</a>
+                                        </li>
+                                        <li>
+                                            <a href="#trig_2">RUN</a>
+                                        </li>
+                                        <li>
+                                            <a href="#trig_3">SAVE</a>
+                                        </li>
+                                        <li>
+                                            <a href="#trig_4">CANCEL</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </li>
+                            <li>
+                                <a href="#line8">User Management</a>
+                                <ul class="nav">
+                                    <li>
+                                        <a href="#line8_1">Add a new user</a>
+                                    </li>
+                                    <li>
+                                        <a href="#line8_2">Edit an existing user</a>
+                                    </li>
+                                    <ul>
+                            </li>
+                            <li>
+                                <a href="#line10">Version History (Changelog)</a>
+                            </li>
+                            <li>
+                                <a href="#line11">Copyright and license</a>
+                            </li>
+                            </ul>
+                    </nav>
                 </div>
                 <div class="col-md-9">
                     <section class="welcome">
 
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Introduction<hr></h2>
+                                <h2 id='tut' class="dark-text">Tutorial
+                                    <br></br>
+                                    <div class="row">
+
+                                        <div class="media">
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/snFzbPm_RUE" frameborder="0" allowfullscreen></iframe>
+                                        </div>
+
+
+                                    </div>
+
+                                </h2>
+
+                                <h2 id="line0" class="dark-text">Introduction
+
+                                </h2>
                                 <div class="row">
 
                                     <div class="col-md-12 full">
+                                        <!--
                                         <div class="intro1">
                                             <ul>
-                                                <li><strong>Item Name : </strong>Gather Responsive Event Template</li>
-                                                <li><strong>Item Version : </strong> v 1.0</li>
-                                                <li><strong>Author  : </strong> <a href="http://themeforest.net/user/surjithctly" target="_blank">Surjith S M</a></li>
-                                                <li><strong>Support Forum : </strong> <a href="https://support.surjithctly.in/forums" target="_blank">https://support.surjithctly.in/forums</a></li>
-                                                <li><strong>License : </strong> <a href="#" target="_blank">Un License</a></li>
+                                                <li>
+                                                    <strong>Item Name : </strong>Gather Responsive Event Template</li>
+                                                <li>
+                                                    <strong>Item Version : </strong> v 1.0</li>
+                                                <li>
+                                                    <strong>Author : </strong>
+                                                    <a href="http://themeforest.net/user/surjithctly" target="_blank">Surjith S M</a>
+                                                </li>
+                                                <li>
+                                                    <strong>Support Forum : </strong>
+                                                    <a href="https://support.surjithctly.in/forums" target="_blank">https://support.surjithctly.in/forums</a>
+                                                </li>
+                                                <li>
+                                                    <strong>License : </strong>
+                                                    <a href="#" target="_blank">Un License</a>
+                                                </li>
                                             </ul>
                                         </div>
+                                    -->
 
                                         <hr>
                                         <div>
-                                            <p>First of all, Thank you so much for purchasing this template and for being my loyal customer.
-                                                <strong>You are awesome!</strong>
-                                                <br> You are entitled to get free lifetime updates to this product + exceptional support from the author directly.
+                                            <p>
+                                                <strong>What is Robotick?</strong>
+                                                <br> Robotick is a RPA application that automizes workflows for you.
                                             </p>
 
-                                            <p>This documentation is to help you regarding each step of customization. Please go through the documentation carefully to understand how this template is made and how to edit this properly. Basic HTML and CSS knowledge is required to customize this template. You may learn basics <a href="http://www.w3schools.com/" target="_blank">here</a>, <a href="https://developer.mozilla.org/" target="_blank">here</a> and <a href="http://learn.shayhowe.com/html-css/building-your-first-web-page/" target="_blank">here</a>. </p>
+                                            <p>This documentation is to help you regarding each step of your Robotick experience.
+                                                Please go through the documentation and watch the tutorial to understand
+                                                the building blocks of Robotick and how to make most of its application.
+                                            </p>
 
                                             <h4>Requirements</h4>
-                                            <p>You will need the following sofwares to customize this template.</p>
+                                            <p>You will need the following to be able to use Robotick</p>
                                             <ol>
-                                                <li>Code Editing Software (eg: Dreamweaver, Sublime Text or Notepad)</li>
-                                                <li>Web Browser for testing (eg: Google Chrome or Mozilla Firefox)</li>
-                                                <li>FTP Tool to upload files to Server (eg: <a href="https://filezilla-project.org/download.php?type=client" target="_blank">FileZilla</a>) </li>
+                                                <li>Internet connection</li>
+                                                <li>Web browser</li>
+                                                <li>Access to Robotick </li>
                                             </ol>
-                                            <div class="intro2 clearfix">
-                                                <p><i class="fa fa-exclamation-triangle"></i> Be careful while editing the template. If not edited properly, the design layout may break completely.
-                                                    <br> No support is provided for faulty customization.
-                                                </p>
-                                            </div>
 
                                         </div>
                                     </div>
@@ -144,63 +292,122 @@
                         </div>
                     </section>
 
-                    <section id="line1" class="section">
+                    <section class="section">
 
                         <div class="row">
-                            <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Getting Started <a href="#top">#back to top</a><hr></h2>
+                            <div id="line1" class="col-md-12 left-align">
+                                <h2 class="dark-text">Terminology
+                                    <a href="#top">#back to top</a>
+
+                                </h2>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
 
                         <div class="row">
-                            <div class="col-md-12">
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
 
-                                <h4>Bootstrap Grid System</h4>
+                            <div class="col-md-8">
+                                <h4 id="line1_1">Project
+                                    <a href="#top">#back to top</a>
+                                </h4>
+                                <ul></ul>
 
-                                <pre class="brush: html; highlight: [2,4]">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        YOUR CODES GOES HERE
-                                    </div>
-                                </div>
-                            </div></pre>
+                                <p>
+                                    Project refers to the project the user is working in. One user can have one or more projects to work on. Each project can
+                                    have multiple flows. The admin of the project can add other users to a project.
 
-                                <p>Our you can use the grid system with 2 columns like this;</p>
+                                </p>
+                                <h4 id="line1_2">Flow
+                                    <a href="#top">#back to top</a>
+                                </h4>
+                                <ul></ul>
 
-                                <pre class="brush: html">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        YOUR CODES GOES HERE
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        YOUR CODES GOES HERE
-                                    </div>
-                                </div>
-                            </div>
-                         </pre>
+                                <p>
+                                    Flow refers to the workflow. Flow contains components and the connections between them, indicated with arrows. The flow works
+                                    in the direction of arrows, starting from the Start component, and ending at the End
+                                    component in the flow editor. The user can create flows in the Flow Editor by putting
+                                    components together and making connections between them.
 
-                                <p>Our you can use the grid system with 3 columns like this;</p>
+                                </p>
+                                <li>
+                                    A Flow has the following properties:
+                                    <ul>
+                                        <li>
+                                            ID -The unique ID number of the Flow
+                                        </li>
+                                        <li>
+                                            Flowname - name of the flow
+                                        </li>
+                                        <li>
+                                            Status - the status of the flow. For example: "deployed"
+                                        </li>
+                                        <li>
+                                            Schedule - the schedule of the flow.
+                                        </li>
+                                    </ul>
+                                </li>
+                                <h4 id="line1_3">Flow List
+                                    <a href="#top">#back to top</a>
+                                </h4>
+                                <ul></ul>
 
-                                <pre class="brush: html">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                        YOUR CODES GOES HERE
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                        YOUR CODES GOES HERE
-                                    </div>
-                                    <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                                        YOUR CODES GOES HERE
-                                    </div>
-                                </div>
-                            </div>
-                         </pre>
+                                <p>
+                                    The user can view the information of their flows in the Flow List.
+
+                                </p>
+                                <h4 id="line1_4">Flow Editor
+                                    <a href="#top">#back to top</a>
+                                </h4>
+                                <ul></ul>
+
+                                <p>
+                                    Flow editor is where the user can create flows, and trigger them. The user can select a component, drag and drop to the editor.
+                                    The user connect different components by clicking the green dots in a component, which
+                                    produces an arrow, and connecting it to another component. The direction of the workflow
+                                    is determined by the direction of the arrow. Every flow has to start with the Start component
+                                    and end with the End component in the Flow Editor. Every component in the Flow Editor
+                                    needs to be connected to this flow, there should not be any component with no connection.
+                                    The user can view his/her flows in Flow List, edit flows in Flow editor, or trigger flows.
+                                </p>
+
+
+                                <h4 id="line1_5">Components
+                                    <a href="#top">#back to top</a>
+                                </h4>
+                                <ul></ul>
+
+                                <p>
+                                    Components are the building blocks of a flow. They are the object that make up the flow. Every component object has different
+                                    meaning. For example Database component is used when the user wants to do database-related
+                                    work. Database component has different methods. If the user wants to make a database
+                                    connection, then the user should use the DBConnection method.
+
+
+                                </p>
+                                <h4 id="line1_6">Triggering the flow
+                                    <a href="#top">#back to top</a>
+                                </h4>
+                                <ul></ul>
+                                <p>
+                                    The user can trigger the flow in the Flow Editor by clicking the buttons below:
+                                </p>
+                                <li> The user can trigger the flow in the Flow Editor by clicking the buttons below:
+                                    <ul>
+                                        <li>
+                                            DEPLOY - This button sends the flow to the backend, ready to be run. The flow can be run only after it is deployed.
+                                        </li>
+                                        <li>
+                                            RUN - This button runs the flow. User can click this button only after delpoying the flow using DEPLOY button.
+                                        </li>
+                                        <li>
+                                            SAVE - Saves the flow
+                                        </li>
+                                        <li>
+                                            CANCEL - This button quits the Flow editor.
+                                        </li>
+                                    </ul>
+                                </li>
                             </div>
                             <!-- end col -->
                         </div>
@@ -209,361 +416,1578 @@
                     </section>
                     <!-- end section -->
 
-                    <section id="line2" class="section">
+                    <section class="section">
 
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">How to Install WordPress <a href="#top">#back to top</a><hr></h2>
+                                <h2 id="line7" class="dark-text">Components
+                                    <a href="#top">#back to top</a>
+
+                                </h2>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
 
-                        <div class="intro2 clearfix">
-                            <p><i class="fa fa-wordpress"></i> Lorem the It is a long established fact that a reader will be distracted..
-                                <br> Please read more about WordPress here. <a href="#">WordPress Installation via FTP.</a> </p>
-                        </div>
-
-                        <hr>
-
-                        <h4>Upload via WordPress Admin</h4>
-
-                        <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-
-                        <a href="#" class="btn btn-primary">Get a Installation Service</a> <a href="#" class="btn btn-info">Ask a Question</a>
-                        <hr>
                         <div class="row">
-                            <div class="col-md-8 col-md-offset-2">
-                                <div class="media">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/snFzbPm_RUE" frameborder="0" allowfullscreen></iframe>
-                                </div>
+
+                            <div class="col-md-8">
+                                <h4 id="line7_1">DATABASE
+                                    <a href="#top">#back to top</a>
+                                </h4>
+                                <p>This component has methods that </p>
+                                <ol>
+                                    <li>
+                                        <h5>Select</h5>
+                                        <ul>
+                                            <h6>
+                                                Parameters:
+                                            </h6>
+                                            <li>
+                                                COMPONENT NAME - name of the component
+                                            </li>
+
+                                            <li>
+                                                CONNECTION - Choose from existing DB connections
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li> For example:
+                                                        <ul>
+                                                            <li>
+                                                                MY_NAME
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                            <li>
+                                                SQLSTRING - SELECT SQL statement to be run
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li> For example:
+                                                        <ul>
+                                                            <li>
+                                                                select to_char(sysdate, 'dd.mm.yyyy HH24:MI:SS') as TIME from MY_ADMIN.CHECK_DATA group by substr(user_nname,1,7)
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <bold>
+                                                <h6>
+                                                    Returns:
+                                                </h6>
+                                            </bold>
+                                            <li>
+                                                RESULTSET variable - type TResultSet
+
+                                            </li>
+                                            <li>
+                                                RESULTCOUNT variable - type NUMBER
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <h5>PLSQLBlock</h5>
+                                        <ul>
+                                            <h6>
+                                                Parameters:
+                                            </h6>
+                                            <li>
+                                                COMPONENT NAME - name of the component
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li> For example:
+                                                        <ul>
+                                                            <li>
+                                                                MY_NAME
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                CONNECTION - Choose from existing DB connections
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li> For example:
+                                                        <ul>
+                                                            <li>
+                                                                DBConnection_1_CONNECTION
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                PLSQLSTRING - SQL Statement to be executed in the Connected DB.
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li> For example:
+                                                        <ul>
+                                                            <li>
+                                                                BEGIN SOL_BILLING.SOL_RPA_UTILS_PKG.EXEC_Q4_GET_ALL_RECORDS(4); END;
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <bold>
+                                                <h6>
+                                                    Returns:
+                                                </h6>
+                                            </bold>
+                                            <li>
+                                                ?? RESULTSET variable - type TResultSet
+
+                                            </li>
+                                            <li>
+                                                ?? RESULTCOUNT variable - type NUMBER
+                                            </li>
+
+                                        </ul>
+
+                                    </li>
+                                    <li>
+                                        <h5>DBConnection</h5>
+                                        <ul>
+                                            <h6>
+                                                Parameters:
+                                            </h6>
+                                            <li>
+                                                COMPONENT NAME -name of the component
+                                            </li>
+                                            <li>
+                                                DB TYPE -database type
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li> For example:
+                                                        <ul>
+                                                            <li>
+                                                                Oracle Connection
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                HOSTNAME -database host name
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li> For example:
+                                                        <ul>
+                                                            <li>
+                                                                my-hostname.turkcell.tgc
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                PORT -database port
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li> For example:
+                                                        <ul>
+                                                            <li>
+                                                                1234
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                SERVIS ADI - SERVICENAME of the connected DB
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li> For example:
+                                                        <ul>
+                                                            <li>
+                                                                abcdef
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                USERNAME -Username for DB connection
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li> For example:
+                                                        <ul>
+                                                            <li>
+                                                                TCUSERNAME
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                PASSWORD - Password for DB connection
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li> For example:
+                                                        <ul>
+                                                            <li>
+                                                                my_password
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <bold>
+                                                <h6>
+                                                    Returns:
+                                                </h6>
+                                            </bold>
+                                            <li>
+                                                RESULTSET variable - type TResultSet
+
+                                            </li>
+                                            <li>
+                                                RESULTCOUNT variable - type NUMBER
+                                            </li>
+
+                                        </ul>
+
+                                    </li>
+                                    <li>
+                                        <h5>ExportResultSet</h5>
+                                        <ul>
+                                            <h6>
+                                                Parameters:
+                                            </h6>
+                                            <li>
+                                                COMPONENT NAME -name of the component
+                                            </li>
+                                            <li>
+                                                RESULTSET -retrieve the result of a component (for example select )
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li> For example:
+                                                        <ul>
+                                                            <li>
+                                                                SELECT_1_RESULTSET
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                OUTPUT TYPE -output the result of the RESULTSET
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li> For example:
+                                                        <ul>
+                                                            <li>
+                                                                HTML
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <ul>
+                                            <bold>
+                                                <h6>
+                                                    Returns:
+                                                </h6>
+                                            </bold>
+                                            <li>
+                                                RESULTSET variable - type TResultSet
+
+                                            </li>
+                                            <li>
+                                                RESULTCOUNT variable - type NUMBER
+                                            </li>
+
+                                        </ul>
+
+                                    </li>
+
+                                </ol>
                             </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                        <hr>
+
+                        <div class="row">
+
+                            <div class="col-md-8">
+                                <h4 id="line7_2">EMAIL
+                                    <a href="#top">#back to top</a>
+                                </h4>
+
+                            </div>
+                            <!-- end col -->
 
                         </div>
+                        <!-- end row -->
+                        <ol>
+                            <li>
+                                <h5>ConnectMailbox</h5>
+                                <ul>
+                                    <h6>
+                                        Parameters:
+                                    </h6>
+                                    <li>
+                                        COMPONENT NAME -name of the component
+                                    </li>
+                                    <li>
+                                        URL -URL of the mailbox
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        TCUSERNAME
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        USERNAME -username to log in
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        TCUSERNAME
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        PASSWORD -password to log in
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        TCUSERNAME
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                                <ul>
+                                    <bold>
+                                        <h6>
+                                            Returns:
+                                        </h6>
+                                    </bold>
+                                    <li>
+                                        SESSION variable - TSession
+
+                                    </li>
+
+
+                                </ul>
+
+                            </li>
+                            <li>
+                                <h5>SendEmail</h5>
+                                <ul>
+                                    <h6>
+                                        Parameters:
+                                    </h6>
+                                    <li>
+                                        COMPONENT NAME -name of the component
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        TCUSERNAME
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        TO - e-mail adress which will receive email
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        TEAM-ADMIN@turkcell.com.tr
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        SUBJECT - subject line
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        LAST WEEK REPORT
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        BODY -body of the email
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        Merhabalar, Son dosya kontrolu buradadir: ${ExportResultset_1_HTML}
+
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Dosyalar - Files in this flow you can attach to the e-mail
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        ExportResultset_1_EXCEL
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                                <ul>
+                                    <bold>
+                                        <h6>
+                                            Returns:
+                                        </h6>
+                                    </bold>
+                                    <li>
+                                        returns nothing
+
+
+                                    </li>
+
+
+                                </ul>
+
+                            </li>
+                            <li>
+                                <h5>ChangeMailStatus</h5>
+                                <ul>
+                                    <h6>
+                                        Parameters:
+                                    </h6>
+                                    <li>
+                                        COMPONENT NAME -name of the component
+                                    </li>
+                                    <li>
+                                        SESSION -Session of mailbox connection
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        ConnectMailbox_1_SESSION
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        ID - Which email to read?
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        ReadMail_1_ID
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        CHANGE READ STATUS -change to status to READ or UNREAD
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        READ
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        MOVE FOLDER -if ON, move the mail to the DESTIONATION FOLDER
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        OTOMASYON
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                                <ul>
+                                    <bold>
+                                        <h6>
+                                            Returns:
+                                        </h6>
+                                    </bold>
+                                    <li>
+                                        RESULT- string
+                                    </li>
+
+
+                                </ul>
+
+                            </li>
+                            <li>
+                                <h5>ReadMail</h5>
+                                <ul>
+                                    <h6>
+                                        Parameters:
+                                    </h6>
+                                    <li>
+                                        COMPONENT NAME -name of the component
+                                    </li>
+                                    <li>
+                                        SESSION -Session of mailbox connection
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        ConnectMailbox_1_SESSION
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        FOLDER - from which folder
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        ONEDESK
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        FROM - from who
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        USERNAME@turkcell.com.tr
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        SUBJECT CONTAINS -mails whose subject contains this string
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        operasyon
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        FROM DATE -mails which are from this date
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        ??
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        SUBJECT CONTAINS -mails whose body contains this string
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        Aksiyon bekleniyor
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        BODY CONTAINS -mails whose body contains this string
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        Fatura detay
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        TYPE OF MAIL -mails that are READ/UNREAD or ALL
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        ALL
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                                <ul>
+                                    <bold>
+                                        <h6>
+                                            Returns:
+                                        </h6>
+                                    </bold>
+                                    <li>
+                                        ID - string
+
+                                    </li>
+                                    <li>
+                                        MAILSUBJECT - string
+                                    </li>
+                                    <li>
+                                        MAILBODY- string
+                                    </li>
+                                    <li>
+                                        RESULT - string
+                                    </li>
+                                    <li>
+                                        SENDER - string
+                                    </li>
+
+                                </ul>
+
+                            </li>
+                        </ol>
+                        <hr>
+
+                        <div class="row">
+
+                            <div class="col-md-8">
+                                <h4 id="line7_3">DECISION
+                                    <a href="#top">#back to top</a>
+                                </h4>
+
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+
+                        <ol>
+                            <li>
+                                <h5>IfElse</h5>
+                                <ul>
+                                    <p>This component is different from other components.When the user connects this component
+                                        to a next one through an arrow, click on the arrow and the user can see that arrow
+                                        itself is a component as well. When the user click on the arrow, the user can see
+                                        that the properties of that connection. By editing the parameters of the connection
+                                        between IfElse component and the next component connected to IfElse, the user can
+                                        set up conditions for the next component to be used or not. </p>
+                                    <h6>
+                                        Parameters:
+                                    </h6>
+                                    <li>
+                                        COMPONENT NAME - name of the component
+                                    </li>
+
+                                    <li>
+                                        Condition - The blank input box where the user can type the condition
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        FindString_1_FIND_RESULT == 'true'
+                                                    </li>
+                                                    <li>
+                                                        FindString_1_FIND_RESULT == 'false'
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <bold>
+                                        <h6>
+                                            Returns:
+                                        </h6>
+                                    </bold>
+                                    <li>
+                                        Returns nothing
+
+                                    </li>
+
+                                </ul>
+                            </li>
+                        </ol>
+
+
+
+
+                        <hr>
+
+                        <div class="row">
+
+                            <div class="col-md-8">
+                                <h4 id="line7_4">BIP
+                                    <a href="#top">#back to top</a>
+                                </h4>
+
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                        <ol>
+                            <li>
+                                <h5>SendBipMessage</h5>
+                                <ul>
+
+                                    <h6>
+                                        Parameters:
+                                    </h6>
+                                    <li>
+                                        COMPONENT NAME - name of the component
+                                    </li>
+
+                                    <li>
+                                        TO - the mobile phone number the BIP message will go to
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        90533111111
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        MESSAGE - the body of the message
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        Merhaba, fatura mesaj listesi hazirlandi. Bilginize.
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <bold>
+                                        <h6>
+                                            Returns:
+                                        </h6>
+                                    </bold>
+                                    <li>
+                                        returns nothing
+
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                        </ol>
+
+
+
+
+                        <hr>
+
+                        <div class="row">
+
+                            <div class="col-md-8">
+                                <h4 id="line7_5">SMS
+                                    <a href="#top">#back to top</a>
+                                </h4>
+
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                        <ol>
+                            <li>
+                                <h5>Send SMS</h5>
+                                <ul>
+
+                                    <h6>
+                                        Parameters:
+                                    </h6>
+                                    <li>
+                                        COMPONENT NAME - name of the component
+                                    </li>
+
+                                    <li>
+                                        MSISDN - the mobile phone number the BIP message will go to
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        90533111111
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        SMS TEXT - the body of the SMS text
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        Merhaba, fatura mesaj listesi hazirlandi. Bilginize.
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <bold>
+                                        <h6>
+                                            Returns:
+                                        </h6>
+                                    </bold>
+                                    <li>
+                                        SMSRESULTCODE variable - type TSMS_RESULT
+
+                                    </li>
+
+                                </ul>
+                            </li>
+                        </ol>
+
+
+                        <hr>
+
+                        <div class="row">
+
+                            <div class="col-md-8">
+                                <h4 id="line7_6">FILE
+                                    <a href="#top">#back to top</a>
+                                </h4>
+
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+
+                        <ol>
+                            <li>
+                                <h5>SFTP</h5>
+                                <ul>
+
+                                    <h6>
+                                        Parameters:
+                                    </h6>
+                                    <li>
+                                        HOST NAME - IP addres to connect
+                                    </li>
+
+                                    <li>
+                                        METHOD - The method used in file transfer. This part can only get two values: PUT or GET
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        PUT
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        LOCALFPATH -The complete path for the file that user wants to GET or PUT
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        ?
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        REMOTEFPATH -The complete path for the file that user wants to GET or PUT
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        ?
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        USERNAME - The username for the IP connection
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        ?
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        PASSWORD - The password for the IP connection
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        my_password_1213
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                                <ul>
+                                    <bold>
+                                        <h6>
+                                            Returns:
+                                        </h6>
+                                    </bold>
+                                    <li>
+                                        returns nothing
+                                    </li>
+
+
+                                </ul>
+                            </li>
+
+                            <li>
+                                <h5>FTP</h5>
+                                <ul>
+
+                                    <h6>
+                                        Parameters:
+                                    </h6>
+                                    <li>
+                                        HOST NAME - IP addres to connect
+                                    </li>
+
+                                    <li>
+                                        METHOD - The method used in file transfer. This part can only get two values: PUT or GET
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        PUT
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        LOCALFPATH -The complete path for the file that user wants to GET or PUT
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        ?
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        REMOTEFPATH -The complete path for the file that user wants to GET or PUT
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        ?
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        USERNAME - The username for the IP connection
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        ?
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        PASSWORD - The password for the IP connection
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        my_password_1213
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                                <ul>
+                                    <bold>
+                                        <h6>
+                                            Returns:
+                                        </h6>
+                                    </bold>
+                                    <li>
+                                        returns nothing
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                        </ol>
+
+
+
+                        <hr>
+
+                        <div class="row">
+
+                            <div class="col-md-8">
+                                <h4 id="line7_7">STRING
+                                    <a href="#top">#back to top</a>
+                                </h4>
+                            </div>
+                            <!-- end col -->
+                        </div>
+
+                        <ol>
+                            <li>
+                                <h5>FindString</h5>
+                                <ul>
+
+                                    <h6>
+                                        Parameters:
+                                    </h6>
+                                    <li>
+                                        COMPONENT NAME - name of the component
+                                    </li>
+
+                                    <li>
+                                        SOURCE STRING - The source where the user wants look in
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        GetDate_1_OUTPUTDATE_STR
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        FIND STRING - the string user wants to find
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        .*^(10|20|25).*
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>REGULAR EXPERESSION- If ON, the string user wants to find (FIND STRING input) will be
+                                        considerd as a regular expression input
+
+                                    </li>
+                                    <li>
+                                        EXACT MATCH - If ON, the string user wants to find needs to be exact match with the found string
+                                    </li>
+                                    <li>
+                                        CASE SENSITIVE- IF ON, the string user wants to find will be case sensitive
+
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <bold>
+                                        <h6>
+                                            Returns:
+                                        </h6>
+                                    </bold>
+                                    <li>
+                                        FIND_RESULT variable - type string
+                                    </li>
+                                    <li>
+                                        FIND_OUT variable - type string
+                                    </li>
+                                    <li>
+                                        COUNT variable - type string
+                                    </li>
+
+                                </ul>
+
+
+                            </li>
+                        </ol>
+
+                        <!-- end row -->
+                        <hr>
+
+                        <div class="row">
+
+                            <div class="col-md-8">
+                                <h4 id="line7_8">OS
+                                    <a href="#top">#back to top</a>
+                                </h4>
+
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                        <ol>
+                            <li>
+                                <h5>LinuxCMD</h5>
+                                <ul>
+
+                                    <h6>
+                                        Parameters:
+                                    </h6>
+                                    <li>
+                                        HOSTNAME - name of the component
+                                    </li>
+
+                                    <li>
+                                        COMMAND - The source where the user wants look in
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        dzdo -iu intconn /myapp/folder/BIN/file.sh ABCD_IN
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        USERNAME - The source where the user wants look in
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        tc000000
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        PASSWORD - The source where the user wants look in
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        my_password_1123
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                                <ul>
+                                    <bold>
+                                        <h6>
+                                            Returns:
+                                        </h6>
+                                    </bold>
+                                    <li>
+                                        SSH_OUT -string
+
+                                    </li>
+                                    <li>
+                                        LinuxCMD_1_RETCODE variable -type string
+                                    </li>
+                                    <li>
+                                        LinuxCMD_1_FILES variable - type TFILEs
+                                    </li>
+
+                                </ul>
+                            </li>
+                        </ol>
+
+                        <hr>
+
+                        <div class="row">
+
+                            <div class="col-md-8">
+                                <h4 id="line7_9">DateTime
+                                    <a href="#top">#back to top</a>
+                                </h4>
+
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+                        <ol>
+                            <li>
+                                <h5>GetDate</h5>
+                                <ul>
+
+                                    <h6>
+                                        Parameters:
+                                    </h6>
+                                    <li>
+                                        COMPONENT NAME - name of the component
+                                    </li>
+
+                                    <li>
+                                        INPUT OPTION - If selected system, current date and time is selected as input option. Otherwise if user selects USER-DEFINED,
+                                        the date-picker opens and user selects the any data they want.
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        SYSTEM
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        INPUT DATE - Date to be entered as input
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        OUTPUT FORMAT OPTION - The user can select one of the PREBUILT formats or select CUSTOM and types their own OUTPUT FORMAT.
+                                        If the user selects CUSTOM and want to type their own format, they can learn how
+                                        to type the format by clicking the tooltip. If user selects CUSTOM and leaves the
+                                        OUTPUT FORMAT blank, the component outputs on the default format written in the tooltip.
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        CUSTOM
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        OUTPUT FORMAT - The format of the output date and time
+                                    </li>
+                                    <li>
+                                        <ul>
+                                            <li> For example:
+                                                <ul>
+                                                    <li>
+                                                        dd
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <bold>
+                                        <h6>
+                                            Returns:
+                                        </h6>
+                                    </bold>
+                                    <li>
+                                        OUTPUTDATE variable - type DATE
+
+                                    </li>
+                                    <li>
+                                        OUTPUTDATE_STR variable- type STRING
+                                    </li>
+
+                                </ul>
+
+                            </li>
+                        </ol>
 
                     </section>
                     <!-- end section -->
 
-                    <section id="line3" class="section">
+                    <section class="section">
 
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 class="dark-text">How to Install Theme <a href="#top">#back to top</a><hr></h2>
+                                <h2 id="trig" class="dark-text">Triggering the flow
+                                    <a href="#top">#back to top</a>
+
+                                </h2>
+                                <h4 id="line1_6">Triggering the flow
+                                    <a href="#top">#back to top</a>
+                                </h4>
+                                <ul></ul>
+                                <p>
+                                    The user can trigger the flow in the Flow Editor by clicking the buttons below:
+                                </p>
+                                <h4 id="trig_1">DEPLOY
+                                    <a href="#top">#back to top</a>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>This button sends the flow to the backend, ready to be run. The flow can be run
+                                                only after it is deployed.
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                </h4>
+                                <h4 id="trig_2">RUN
+                                    <a href="#top">#back to top</a>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>This button runs the flow. User can click this button only after delpoying the
+                                                flow using DEPLOY button.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </h4>
+                                <h4 id="trig_3">SAVE
+                                    <a href="#top">#back to top</a>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>Saves the flow
+                                            </p>
+                                        </div>
+                                    </div>
+                                </h4>
+                                <h4 id="trig_4">CANCEL
+                                    <a href="#top">#back to top</a>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>This button quits the Flow editor.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </h4>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                    </section>
+
+
+                    <section class="section">
+
+                        <div class="row">
+                            <div class="col-md-12 left-align">
+                                <h2 id="line8" class="dark-text">User Management
+                                    <a href="#top">#back to top</a>
+
+                                </h2>
+
+                                <h4 id="line8_1">Add a new user
+                                    <a href="#top">#back to top</a>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>When you click Settings on the main menu, User Management page comes up. To add
+                                                a new user, the user needs to type the Username and Password, select the
+                                                project and the role. When the user clicks on "Add a new user" , the user
+                                                is added to the project.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </h4>
+                                <h4 id="line8_2">Edit an existing user
+                                    <a href="#top">#back to top</a>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>In User Management page, users of the project are displayed in a table. If the
+                                                user has authorization, user can edit or delete the users using Edit or Delete
+                                                buttons near the user information in the table.
+
+                                            </p>
+                                        </div>
+                                    </div>
+                                </h4>
                             </div>
                             <!-- end col -->
                         </div>
                         <!-- end row -->
-
-                        <h4>Upload via WordPress Admin</h4>
-
-                        <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-
-                        <a href="#" class="btn btn-primary">Get a Installation Service</a> <a href="#" class="btn btn-info">Ask a Question</a>
-
-                        <hr>
-
-                        <h4>Upload via FTP Server</h4>
-
-                        <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-
-                        <a href="#" class="btn btn-primary">Get a Installation Service</a> <a href="#" class="btn btn-info">Ask a Question</a>
-                        <hr>
+                        <!--
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="media">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/yQnQyI5WlKs" frameborder="0" allowfullscreen></iframe>
-                                </div>
+                                <p>Please remember you have purchased a very affordable theme and you have not paid for a full-time
+                                    web design agency. Occasionally we will help with small tweaks, but these requests will
+                                    be put on a lower priority due to their nature. Support is also 100% optional and we
+                                    provide it for your connivence, so please be patient, polite and respectful.</p>
 
-                            </div>
-                            <div class="col-md-6">
-                                <div class="media">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/z0kEVwJB_go" frameborder="0" allowfullscreen></iframe>
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </section>
-                    <!-- end section -->
-
-                    <section id="line4" class="section">
-
-                        <div class="row">
-                            <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Necessary Plugins <a href="#top">#back to top</a><hr></h2>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img src="images/upload/plugin1.png" alt="" class="img-responsive img-thumbnail">
-                                <h4>Plugin name #1</h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</p>
-                            </div>
-                            <!-- end col -->
-
-                            <div class="col-md-4">
-                                <img src="images/upload/plugin2.png" alt="" class="img-responsive img-thumbnail">
-                                <h4>Plugin name #2</h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</p>
-                            </div>
-                            <!-- end col -->
-
-                            <div class="col-md-4">
-                                <img src="images/upload/plugin3.png" alt="" class="img-responsive img-thumbnail">
-                                <h4>Plugin name #3</h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</p>
-                            </div>
-                            <!-- end col -->
-
-                            <div class="col-md-12">
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-
-                                <div class="text-center">
-                                    <a href="#" class="btn btn-primary">Get a Installation Service</a> <a href="#" class="btn btn-info">Ask a Question</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end row -->
-
-                    </section>
-                    <!-- end section -->
-
-                    <section id="line5" class="section">
-
-                        <div class="row">
-                            <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Creating Blog Pages <a href="#top">#back to top</a><hr></h2>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-
-                            <div class="col-md-12">
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-                            </div>
-
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                                <h4 id="line5_1">WordPress Blog Page - <a href="#top">#top</a></h4>
-                                <ul>
-                                    <li><strong>Step 1</strong> - Lorem the It is a long established fact that a reader ease read more about WordPress here.</li>
-                                    <li><strong>Step 2</strong> - Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</li>
-                                    <li><strong>Step 3</strong> - Lorem the It is a long established fact that a read.</li>
-                                </ul>
-                            </div>
-                            <!-- end col -->
-
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                                <h4 id="line5_2">Blog Post Sections - <a href="#top">#top</a></h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</p>
-                                <ul>
-                                    <li><strong>Step 1</strong> - Lorem the It is a long established fact that a reader ease read more about WordPress here.</li>
-                                    <li><strong>Step 2</strong> - Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</li>
-                                    <li><strong>Step 3</strong> - Lorem the It is a long established fact that a read.</li>
-                                </ul>
-                            </div>
-                            <!-- end col -->
-
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                                <h4 id="line5_3">Create Blog Gallery - <a href="#top">#top</a></h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</p>
-                                <ul>
-                                    <li><strong>Step 1</strong> - Lorem the It is a long established fact that a reader ease read more about WordPress here.</li>
-                                    <li><strong>Step 2</strong> - Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</li>
-                                    <li><strong>Step 3</strong> - Lorem the It is a long established fact that a read.</li>
-                                </ul>
-                            </div>
-                            <!-- end col -->
-
-                        </div>
-                        <!-- end row -->
-
-                    </section>
-                    <!-- end section -->
-
-                    <section id="line6" class="section">
-
-                        <div class="row">
-                            <div class="col-md-12 left-align">
-                                <h2 class="dark-text">How to Install Revolution Slider <a href="#top">#back to top</a><hr></h2>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-
-                            <div class="col-md-12">
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-                            </div>
-
-                            <div class="col-md-6">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                                <h4>Installation Slider</h4>
-                                <ul>
-                                    <li><strong>Step 1</strong> - Lorem the It is a long established fact that a reader ease read more about WordPress here.</li>
-                                    <li><strong>Step 2</strong> - Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</li>
-                                    <li><strong>Step 3</strong> - Lorem the It is a long established fact that a read.</li>
-                                </ul>
-                            </div>
-                            <!-- end col -->
-
-                            <div class="col-md-6">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                                <h4>Updating Slider</h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</p>
-                                <ul>
-                                    <li><strong>Step 1</strong> - Lorem the It is a long established fact that a reader ease read more about WordPress here.</li>
-                                    <li><strong>Step 2</strong> - Lorem the It is a long established fact that a reader will be distracted.. Please read more about WordPress here.</li>
-                                    <li><strong>Step 3</strong> - Lorem the It is a long established fact that a read.</li>
-                                </ul>
-                            </div>
-                            <!-- end col -->
-
-                        </div>
-                        <!-- end row -->
-
-                    </section>
-                    <!-- end section -->
-
-                    <section id="line7" class="section">
-
-                        <div class="row">
-                            <div class="col-md-12 left-align">
-                                <h2 class="dark-text">How to Use Option Panel <a href="#top">#back to top</a><hr></h2>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                            </div>
-
-                            <div class="col-md-8">
-                                <h4 id="line7_1">General Options - <a href="#top">#back to top</a></h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <hr>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                            </div>
-
-                            <div class="col-md-8">
-                                <h4 id="line7_2">Style Options - <a href="#top">#back to top</a></h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <hr>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                            </div>
-
-                            <div class="col-md-8">
-                                <h4 id="line7_3">Header Options - <a href="#top">#back to top</a></h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <hr>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                            </div>
-
-                            <div class="col-md-8">
-                                <h4 id="line7_4">Font Options - <a href="#top">#back to top</a></h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <hr>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                            </div>
-
-                            <div class="col-md-8">
-                                <h4 id="line7_5">Slider Options - <a href="#top">#back to top</a></h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <hr>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                            </div>
-
-                            <div class="col-md-8">
-                                <h4 id="line7_6">Page Options - <a href="#top">#back to top</a></h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <hr>
-
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href="upload/thumbnail.png" data-rel="prettyPhoto"><img src="images/upload/thumbnail.png" alt="" class="img-responsive img-thumbnail"></a>
-                            </div>
-
-                            <div class="col-md-8">
-                                <h4 id="line7_7">Import & Export Options - <a href="#top">#back to top</a></h4>
-                                <p>Lorem the It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. long established fact that a reader will English.</p>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                    </section>
-                    <!-- end section -->
-
-                    <section id="line8" class="section">
-
-                        <div class="row">
-                            <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Support Desk <a href="#top">#back to top</a><hr></h2>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p>Please remember you have purchased a very affordable theme and you have not paid for a full-time web design agency. Occasionally we will help with small tweaks, but these requests will be put on a lower priority due to their nature. Support is also 100% optional and we provide it for your connivence, so please be patient, polite and respectful.</p>
-
-                                <p>Please visit our <a href="http://themeforest.net/user/yourusername"><strong>profile page</strong></a> or ask question <a href="mailto:yourusername@gmail.com">@yourusername</a></p>
+                                <p>Please visit our
+                                    <a href="http://themeforest.net/user/yourusername">
+                                        <strong>profile page</strong>
+                                    </a> or ask question
+                                    <a href="mailto:yourusername@gmail.com">@yourusername</a>
+                                </p>
 
                                 <strong>Support for my items includes:</strong>
                                 <ul>
@@ -583,176 +2007,34 @@
                                 <strong>Before seeking support, please...</strong>
                                 <ul>
                                     <li>* Make sure your question is a valid Theme Issue and not a customization request.</li>
-                                    <li>* Make sure you have read through the documentation and any related video guides before asking support on how to accomplish a task.</li>
+                                    <li>* Make sure you have read through the documentation and any related video guides before
+                                        asking support on how to accomplish a task.</li>
                                     <li>* Make sure to double check the theme FAQs.</li>
-                                    <li>* Try disabling any active plugins to make sure there isn't a conflict with a plugin. And if there is this way you can let us know.</li>
-                                    <li>* If you have customized your theme and now have an issue, back-track to make sure you didn't make a mistake. If you have made changes and can't find the issue, please provide us with your changelog.</li>
-                                    <li>* Almost 80% of the time we find that the solution to people's issues can be solved with a simple "Google Search". You might want to try that before seeking support. You might be able to fix the issue yourself much quicker than we can respond to your request.</li>
-                                    <li>* Make sure to state the name of the theme you are having issues with when requesting support via ThemeForest.</li>
+                                    <li>* Try disabling any active plugins to make sure there isn't a conflict with a plugin.
+                                        And if there is this way you can let us know.</li>
+                                    <li>* If you have customized your theme and now have an issue, back-track to make sure you
+                                        didn't make a mistake. If you have made changes and can't find the issue, please
+                                        provide us with your changelog.</li>
+                                    <li>* Almost 80% of the time we find that the solution to people's issues can be solved with
+                                        a simple "Google Search". You might want to try that before seeking support. You
+                                        might be able to fix the issue yourself much quicker than we can respond to your
+                                        request.
+                                    </li>
+                                    <li>* Make sure to state the name of the theme you are having issues with when requesting
+                                        support via ThemeForest.</li>
                                 </ul>
                             </div>
                         </div>
+                        -->
                         <!-- end row -->
+
 
                     </section>
                     <!-- end section -->
 
-                    <section id="line9" class="section">
 
-                        <div class="row">
-                            <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Files & Sources <a href="#top">#back to top</a><hr></h2>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <strong>Included Stylesheets</strong>
-
-                                <p>These are the primary CSS files used for general front-end styling. Use these to customize your theme even further. All included JavaScript codes under <strong>yourthemename/css/</strong></p>
-
-                                <ul>
-                                    <li>1. style.css - Primary stylesheet</li>
-                                    <li>2. bootstrap.css - Bootstrap stylesheet</li>
-                                    <li>3. owl-carousel.css - OWL Carousel</li>
-                                    <li>4. fontawesome.css - FontAwesome Font Icons stylesheet</li>
-                                    <li>5. custom.css - Pathos Color Schemes stylesheet</li>
-                                    <li>6. prettyPhoto.css - Lightbox effect css file</li>
-                                    <li>7. flexslider.css - Flexslider css file</li>
-                                    <li>8. et-line.css - Elegant icons css file</li>
-                                    <li>9. carousel.css - OWL Carousel css file</li>
-                                    <li>10. animate.css - CSS3 animations css file</li>
-                                </ul>
-
-                            </div>
-
-                            <div class="col-md-6">
-                                <strong>Included JavaScript</strong>
-
-                                <p>These are the various attribution inks to the Javascript files included or modified to work with in this theme. All included JavaScript codes under <strong>yourthemename/js/</strong></p>
-
-                                <ul>
-                                    <li>1. bootstrap.js - Bootstrap JavaScript</li>
-                                    <li>2. custom.js - All JavaScript Plugins</li>
-                                    <li>3. retina.js - Retina JavaScript</li>
-                                    <li>4. jquery.js - Base JavaScript</li>
-                                    <li>5. prettyPhoto.js - Lightbox JavaScript</li>
-                                    <li>6. owl-carousel.js - Lightbox JavaScript</li>
-                                    <li>7. revslider.js - Revolution Slider JavaScript</li>
-                                    <li>8. flexslider.js - Flexslider JavaScript</li>
-                                    <li>9. awesome-grid.nin.js - Awesome grid portfolio JavaScript</li>
-                                    <li>10. circle.js - Coming soon page JavaScript</li>
-                                    <li>11. contact.js - Contact form validate JavaScript</li>
-                                    <li>12. isotope.js - Masonry Portfolio JavaScript</li>
-                                    <li>13. progress.js - Progress bar JavaScript</li>
-                                    <li>14. rotate.js - Text rotate effect JavaScript</li>
-                                    <li>15. wow.js - CSS3 animation JavaScript</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- end row -->
-
-                    </section>
                     <!-- end section -->
 
-                    <section id="line10" class="section">
-
-                        <div class="row">
-                            <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Version History (Changelog) <a href="#top">#back to top</a><hr></h2>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-md-12">
-
-                                <p>You can find the version history (changelog.txt) file on <strong>yourthemename-full.zip</strong> folder or you can check changelog on theme sale page.</p>
-                                <p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p>
-
-                                <hr>
-
-                                <h4>Changelog</h4>
-
-                                <pre class="brush: html">
-
-                                        -----------------------------------------------------------------------------------------
-                                        Version 3.8.4 - May 7th, 2015
-                                        -----------------------------------------------------------------------------------------
-
-                                        - new revolution slider plugin version
-                                        - fixed security issue with xss vulnerability
-                                        - improved demo importer for certain server environments
-                                        - updated WooCommerce template files for the outdated message in system status
-                                        - added suhosin check in system status 
-                                        - added information that explains ZipArchive is required on your server for importing demos 
-                                        - portfolio Grid template improvement
-                                        - added more information to demo popup message for individual demo requirements
-                                        - RTL style improvements
-                                        - breadcrumb function improved for various areas
-
-                                        -----------------------------------------------------------------------------------------
-                                        Version 3.8.3 - May 7th, 2015
-                                        -----------------------------------------------------------------------------------------
-                                        - fixed responsive / retina issue for larger logos
-                                        - fusion slider now uses responsive headings all the time
-                                        - dropped custom Avada styles for select boxes in IE since it is not supported
-                                        - fixed compatibility issue with Category Order and Taxonomy Terms Order plugin
-                                        - fixed issue of full width background being affected by padding options
-                                        - tested and fixed hellobar issue 
-                                        - typography settings now apply to single post pages
-                                        - improved smooth scroll in certain situations
-                                        - youtube & vimeo videos will show at normal size in light box as long as video embed link is not used
-                                        - fixed issue of â€œfixedâ€ featured image mode not working for carousels / recent work
-                                        - fixed issue of header tagline font not working with font options
-
-                                        -----------------------------------------------------------------------------------------
-                                        Version 3.8.2 - May 7th, 2015
-                                        -----------------------------------------------------------------------------------------
-                                        - fixed formatting issues with Turkish language files 
-                                        - letter spacing menu option improvement
-                                        - improved fusion slider max content width setting
-                                        - removed the â€œdisable first featured image on productsâ€ setting since it does not apply
-                                        - improved portfolio featured image loading
-                                        - removed encoding from tracking code, space before head, space before body, and custom CSS to stop it from parsing code within TO and removing special characters e.g. +
-                                        - woo login box now shows login fields for logged out users
-                                        - woo cart / my account links now show on mobile 
-                                        - fixed button styling issue with gravity forms
-
-
-                                      </pre>
-
-                            </div>
-                        </div>
-                        <!-- end row -->
-
-                    </section>
-                    <!-- end section -->
-
-                    <section id="line11" class="section">
-
-                        <div class="row">
-                            <div class="col-md-12 left-align">
-                                <h2 class="dark-text">Copyright and license <a href="#top">#back to top</a><hr></h2>
-                            </div>
-                            <!-- end col -->
-                        </div>
-                        <!-- end row -->
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                
-                                <p>Code released under the <a href="#" target="_blank">Un License</a> License.</p>                        
-                                <p>For more information about copyright and license check <a href="https://choosealicense.com/" target="_blank">choosealicense.com</a>.</p>
-                            
-                            </div>
-                        </div>
-                        <!-- end row -->
-
-                    </section>
                     <!-- end section -->
                 </div>
                 <!-- // end .col -->
