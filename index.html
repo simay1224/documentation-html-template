@@ -140,9 +140,7 @@
                                     <li>
                                         <a href="#line1_5">Components</a>
                                     </li>
-                                    <li>
-                                        <a href="#line1_6">Triggering the Flow </a>
-                                    </li>
+
                                 </ul>
 
                             </li>
@@ -197,8 +195,11 @@
                                 </li>
                             </li>
                             <li>
-                                <a href="#line8">User Management</a>
+                                <a href="#line8">User Management/Access</a>
                                 <ul class="nav">
+                                    <li>
+                                        <a href="#line8_0">Types of Users</a>
+                                    </li>
                                     <li>
                                         <a href="#line8_1">Add a new user</a>
                                     </li>
@@ -263,11 +264,18 @@
                                         </div>
                                     -->
 
-                                        <hr>
+
                                         <div>
+                                            <h4>What is Robotick?</h4>
+
                                             <p>
-                                                <strong>What is Robotick?</strong>
-                                                <br> Robotick is a RPA application that automizes workflows for you.
+                                                The Robotick project was developed primarily as an initiative within Turkcell. It is an automation orchestration tool that
+                                                primarily automates daily tasks for the needs of operations teams.
+
+                                            </p>
+                                            <p>
+                                                Robotick that does not require installation and can be accessed through a single web browser. You can automate your repetitive
+                                                or periodic tasks using Robotick.
                                             </p>
 
                                             <p>This documentation is to help you regarding each step of your Robotick experience.
@@ -278,10 +286,18 @@
                                             <h4>Requirements</h4>
                                             <p>You will need the following to be able to use Robotick</p>
                                             <ol>
-                                                <li>Internet connection</li>
+                                                <li>Connection to Turkcell network (direct connection or through VPN)</li>
                                                 <li>Web browser</li>
-                                                <li>Access to Robotick </li>
+                                                <li>Access to Robotick application </li>
                                             </ol>
+
+                                            <h4>To start</h4>
+
+                                            <p>Type
+                                                <bold> robotick\
+                                                    <bold> in the URL section of your browser, and that will take you to login page
+                                                        of the application</p>
+                                            Use your Turkcell username and password to log in.
 
                                         </div>
                                     </div>
@@ -315,7 +331,7 @@
 
                                 <p>
                                     Project refers to the project the user is working in. One user can have one or more projects to work on. Each project can
-                                    have multiple flows. The admin of the project can add other users to a project.
+                                    have multiple flows.
 
                                 </p>
                                 <h4 id="line1_2">Flow
@@ -362,13 +378,18 @@
                                 <ul></ul>
 
                                 <p>
-                                    Flow editor is where the user can create flows, and trigger them. The user can select a component, drag and drop to the editor.
-                                    The user connect different components by clicking the green dots in a component, which
-                                    produces an arrow, and connecting it to another component. The direction of the workflow
-                                    is determined by the direction of the arrow. Every flow has to start with the Start component
-                                    and end with the End component in the Flow Editor. Every component in the Flow Editor
-                                    needs to be connected to this flow, there should not be any component with no connection.
-                                    The user can view his/her flows in Flow List, edit flows in Flow editor, or trigger flows.
+                                    Flow editor is where the user can create a flow and edit or trigger it. To start creating a flow, the user can select a component,
+                                    drag and drop to the editor. The user can then connect different components by clicking
+                                    the green dots in a component, which produces an arrow, and connect it to another component.
+                                    In the flow editor, the user can create one flow which has to start with the Start component
+                                    and end with the End component. The direction of the flow is determined by these two
+                                    component: the flow starts with the Start component and ends with the End component.
+                                    Every other component comes in between these two components and need to be connected
+                                    to each other (with no dangling component in the editor). As the user establishes connections
+                                    between components, he/she determines the direction of the flow as well. The arrows that
+                                    make the connections between components indicate the direction of the flow.
+
+
                                 </p>
 
 
@@ -378,36 +399,16 @@
                                 <ul></ul>
 
                                 <p>
-                                    Components are the building blocks of a flow. They are the object that make up the flow. Every component object has different
-                                    meaning. For example Database component is used when the user wants to do database-related
-                                    work. Database component has different methods. If the user wants to make a database
-                                    connection, then the user should use the DBConnection method.
-
+                                    Components are the building blocks of a flow. They are the objects that make up the flow. Every component object has different
+                                    functionality. The components have parameters to tune that component for the exact purpose
+                                    the user wants. The user can set the parameters by clicking the component in the flow
+                                    editor and filling the parameters that show up on the right hand side of the page. Some
+                                    (not all) components have return values as well. The user can see the return values by
+                                    clicking the component in the flow editor and scrolling down the page.
 
                                 </p>
-                                <h4 id="line1_6">Triggering the flow
-                                    <a href="#top">#back to top</a>
-                                </h4>
-                                <ul></ul>
-                                <p>
-                                    The user can trigger the flow in the Flow Editor by clicking the buttons below:
-                                </p>
-                                <li> The user can trigger the flow in the Flow Editor by clicking the buttons below:
-                                    <ul>
-                                        <li>
-                                            DEPLOY - This button sends the flow to the backend, ready to be run. The flow can be run only after it is deployed.
-                                        </li>
-                                        <li>
-                                            RUN - This button runs the flow. User can click this button only after delpoying the flow using DEPLOY button.
-                                        </li>
-                                        <li>
-                                            SAVE - Saves the flow
-                                        </li>
-                                        <li>
-                                            CANCEL - This button quits the Flow editor.
-                                        </li>
-                                    </ul>
-                                </li>
+
+
                             </div>
                             <!-- end col -->
                         </div>
@@ -440,8 +441,7 @@
                                 <ol>
                                     <li>
                                         <h5>Select</h5>
-                                        <p> The SELECT component is used to run SELECT query on a database connection and return
-                                            the result </p>
+                                        <p> The SELECT component is used to run SELECT query on a database connection</p>
                                         <ul>
                                             <h6>
                                                 Parameters:
@@ -499,8 +499,7 @@
 
                                     <li>
                                         <h5>PLSQLBlock</h5>
-                                        <p> The PLSQLBlock component is used to run query on a database connection and return
-                                            the result </p>
+                                        <p> The PLSQLBlock component is used to run query on a database connection </p>
                                         <ul>
                                             <h6>
                                                 Parameters:
@@ -566,8 +565,7 @@
                                     <li>
                                         <h5>DBConnection</h5>
                                         <ul>
-                                            <p> The DBConnection component is used to make a database connection and return the
-                                                connection object </p>
+                                            <p> The DBConnection component is used to make a database connection </p>
                                             <h6>
                                                 Parameters:
                                             </h6>
@@ -666,7 +664,7 @@
                                                 </h6>
                                             </bold>
                                             <li>
-                                                DBConnection_1_CONNECTION variable - type DBConnection_1_CONNECTION
+                                                CONNECTION variable - type TDbConnection
 
                                             </li>
 
@@ -721,12 +719,13 @@
                                                 </h6>
                                             </bold>
                                             <li>
-                                                ExportResultset_1_EXCEL variable - type TFILE
+                                                EXCEL variable - type TFILE
 
                                             </li>
                                             <li>
-                                                ExportResultset_1_HTML variable - type THTML
+                                                HTML variable - type THTML
                                             </li>
+
 
                                         </ul>
 
@@ -1928,9 +1927,7 @@
                                     <a href="#top">#back to top</a>
 
                                 </h2>
-                                <h4 id="line1_6">Triggering the flow
-                                    <a href="#top">#back to top</a>
-                                </h4>
+
                                 <ul></ul>
                                 <p>
                                     The user can trigger the flow in the Flow Editor by clicking the buttons below:
@@ -1984,10 +1981,79 @@
 
                         <div class="row">
                             <div class="col-md-12 left-align">
-                                <h2 id="line8" class="dark-text">User Management
+                                <h2 id="line8" class="dark-text">User Management / Access
                                     <a href="#top">#back to top</a>
 
                                 </h2>
+
+                                <h4 id="line8_0">Types of Users
+                                    <a href="#top">#back to top</a>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>Here are the types of users and their access rights:
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </h4>
+                                <ol>
+                                    <li>
+                                        <h5>
+                                            Root Admin </h5>
+
+
+                                        <ul>
+
+                                            <li>
+                                                Has access to: anything and everything
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <h5>
+                                            Project Admin</h5>
+
+
+                                        <ul>
+
+                                            <li>
+                                                Has access to: Dashboard, project list, flow editor, flow list, execution history, tutorial, create new project, user managemenet
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <h5>
+                                            Flow Admin</h5>
+
+
+                                        <ul>
+
+                                            <li>
+                                                Has access to: Dashboard, project list, flow editor, flow list, execution history, tutorial
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <h5>Monitor User</h5>
+
+                                        <ul>
+
+                                            <li>
+                                                Has access to: Dashboard, project list, flow list, execution history, tutorial
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+
+                                </ol>
+
+
+
+
 
                                 <h4 id="line8_1">Add a new user
                                     <a href="#top">#back to top</a>
@@ -2090,6 +2156,7 @@
 
     </div>
     <!-- end wrapper -->
+    <div></div>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
