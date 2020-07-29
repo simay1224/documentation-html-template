@@ -435,10 +435,13 @@
                                 <h4 id="line7_1">DATABASE
                                     <a href="#top">#back to top</a>
                                 </h4>
-                                <p>This component has methods that </p>
+                                <p> The following components work with database operations
+                                </p>
                                 <ol>
                                     <li>
                                         <h5>Select</h5>
+                                        <p> The SELECT component is used to run SELECT query on a database connection and return
+                                            the result </p>
                                         <ul>
                                             <h6>
                                                 Parameters:
@@ -496,6 +499,8 @@
 
                                     <li>
                                         <h5>PLSQLBlock</h5>
+                                        <p> The PLSQLBlock component is used to run query on a database connection and return
+                                            the result </p>
                                         <ul>
                                             <h6>
                                                 Parameters:
@@ -536,7 +541,7 @@
                                                     <li> For example:
                                                         <ul>
                                                             <li>
-                                                                BEGIN SOL_BILLING.SOL_RPA_UTILS_PKG.EXEC_Q4_GET_ALL_RECORDS(4); END;
+                                                                BEGIN BILLING.RPA_UTILS_PKG.EXEC_Q4_GET_ALL_RECORDS(4); END;
                                                             </li>
                                                         </ul>
                                                     </li>
@@ -550,12 +555,10 @@
                                                 </h6>
                                             </bold>
                                             <li>
-                                                ?? RESULTSET variable - type TResultSet
+                                                PLSQLRESULT variable- - type STRING
 
                                             </li>
-                                            <li>
-                                                ?? RESULTCOUNT variable - type NUMBER
-                                            </li>
+
 
                                         </ul>
 
@@ -563,6 +566,8 @@
                                     <li>
                                         <h5>DBConnection</h5>
                                         <ul>
+                                            <p> The DBConnection component is used to make a database connection and return the
+                                                connection object </p>
                                             <h6>
                                                 Parameters:
                                             </h6>
@@ -661,18 +666,18 @@
                                                 </h6>
                                             </bold>
                                             <li>
-                                                RESULTSET variable - type TResultSet
+                                                DBConnection_1_CONNECTION variable - type DBConnection_1_CONNECTION
 
                                             </li>
-                                            <li>
-                                                RESULTCOUNT variable - type NUMBER
-                                            </li>
+
 
                                         </ul>
 
                                     </li>
                                     <li>
                                         <h5>ExportResultSet</h5>
+                                        <p> The ExportResultSet component is used to get a resultset of a component and export
+                                            as a type of file </p>
                                         <ul>
                                             <h6>
                                                 Parameters:
@@ -716,11 +721,11 @@
                                                 </h6>
                                             </bold>
                                             <li>
-                                                RESULTSET variable - type TResultSet
+                                                ExportResultset_1_EXCEL variable - type TFILE
 
                                             </li>
                                             <li>
-                                                RESULTCOUNT variable - type NUMBER
+                                                ExportResultset_1_HTML variable - type THTML
                                             </li>
 
                                         </ul>
@@ -741,6 +746,8 @@
                                 <h4 id="line7_2">EMAIL
                                     <a href="#top">#back to top</a>
                                 </h4>
+                                <p> The following components work with email operations
+                                </p>
 
                             </div>
                             <!-- end col -->
@@ -750,6 +757,8 @@
                         <ol>
                             <li>
                                 <h5>ConnectMailbox</h5>
+                                <p> The ConnectMailbox component is used to connect to a mailbox and return that session of connection
+                                </p>
                                 <ul>
                                     <h6>
                                         Parameters:
@@ -808,7 +817,7 @@
                                         </h6>
                                     </bold>
                                     <li>
-                                        SESSION variable - TSession
+                                        SESSION variable - type TSession
 
                                     </li>
 
@@ -818,6 +827,9 @@
                             </li>
                             <li>
                                 <h5>SendEmail</h5>
+                                <p> The SendEmail component is used to send an email
+                                </p>
+
                                 <ul>
                                     <h6>
                                         Parameters:
@@ -913,7 +925,10 @@
                             </li>
                             <li>
                                 <h5>ChangeMailStatus</h5>
+                                <p> The ChangeMailStatus component is used to change the mail status
+                                </p>
                                 <ul>
+
                                     <h6>
                                         Parameters:
                                     </h6>
@@ -985,7 +1000,7 @@
                                         </h6>
                                     </bold>
                                     <li>
-                                        RESULT- string
+                                        RESULT variable - type STRING
                                     </li>
 
 
@@ -994,6 +1009,9 @@
                             </li>
                             <li>
                                 <h5>ReadMail</h5>
+                                <p> The ReadMail component is used to read mail in a specific session (connection) based on the
+                                    optional conditions given below (such as "SUBJECT CONTAINS", "BODY CONTAINS" etc)
+                                </p>
                                 <ul>
                                     <h6>
                                         Parameters:
@@ -1044,7 +1062,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        SUBJECT CONTAINS -mails whose subject contains this string
+                                        SUBJECT CONTAINS -read mails whose subject contains this string
                                     </li>
                                     <li>
                                         <ul>
@@ -1058,7 +1076,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        FROM DATE -mails which are from this date
+                                        FROM DATE -read mails which are from this date
                                     </li>
                                     <li>
                                         <ul>
@@ -1072,7 +1090,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        SUBJECT CONTAINS -mails whose body contains this string
+                                        SUBJECT CONTAINS -read mails whose body contains this string
                                     </li>
                                     <li>
                                         <ul>
@@ -1086,7 +1104,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        BODY CONTAINS -mails whose body contains this string
+                                        BODY CONTAINS -read mails whose body contains this string
                                     </li>
                                     <li>
                                         <ul>
@@ -1100,7 +1118,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        TYPE OF MAIL -mails that are READ/UNREAD or ALL
+                                        TYPE OF MAIL - read mails that are READ/UNREAD or ALL
                                     </li>
                                     <li>
                                         <ul>
@@ -1122,20 +1140,20 @@
                                         </h6>
                                     </bold>
                                     <li>
-                                        ID - string
+                                        ID variable - type STRING
 
                                     </li>
                                     <li>
-                                        MAILSUBJECT - string
+                                        MAILSUBJECT variable - type STRING
                                     </li>
                                     <li>
-                                        MAILBODY- string
+                                        MAILBODY variable - type STRING
                                     </li>
                                     <li>
-                                        RESULT - string
+                                        RESULT variable - type STRING
                                     </li>
                                     <li>
-                                        SENDER - string
+                                        SENDER variable - type STRING
                                     </li>
 
                                 </ul>
@@ -1150,6 +1168,8 @@
                                 <h4 id="line7_3">DECISION
                                     <a href="#top">#back to top</a>
                                 </h4>
+                                <p> The following componen work with decision operations
+                                </p>
 
                             </div>
                             <!-- end col -->
@@ -1160,8 +1180,10 @@
                         <ol>
                             <li>
                                 <h5>IfElse</h5>
+                                <p>The IfElse components is used to set up conditions for specific operations to be exefcutd,
+                                    or not executed</p>
                                 <ul>
-                                    <p>This component is different from other components.When the user connects this component
+                                    <p>The IfElse component is different from other components.When the user connects this component
                                         to a next one through an arrow, click on the arrow and the user can see that arrow
                                         itself is a component as well. When the user click on the arrow, the user can see
                                         that the properties of that connection. By editing the parameters of the connection
@@ -1199,7 +1221,7 @@
                                         </h6>
                                     </bold>
                                     <li>
-                                        Returns nothing
+                                        returns nothing
 
                                     </li>
 
@@ -1218,6 +1240,8 @@
                                 <h4 id="line7_4">BIP
                                     <a href="#top">#back to top</a>
                                 </h4>
+                                <p> The following component work with BIP operations
+                                </p>
 
                             </div>
                             <!-- end col -->
@@ -1227,6 +1251,7 @@
                         <ol>
                             <li>
                                 <h5>SendBipMessage</h5>
+                                <p>The SendBipMessage components is used to send BIP messages</p>
                                 <ul>
 
                                     <h6>
@@ -1294,6 +1319,8 @@
                                 <h4 id="line7_5">SMS
                                     <a href="#top">#back to top</a>
                                 </h4>
+                                <p> The following component work with SMS operations
+                                </p>
 
                             </div>
                             <!-- end col -->
@@ -1302,7 +1329,8 @@
 
                         <ol>
                             <li>
-                                <h5>Send SMS</h5>
+                                <h5>SendSMS</h5>
+                                <p>The SendSMS components is used to send SMS messages</p>
                                 <ul>
 
                                     <h6>
@@ -1367,6 +1395,8 @@
                                 <h4 id="line7_6">FILE
                                     <a href="#top">#back to top</a>
                                 </h4>
+                                <p> The following components work with file operations
+                                </p>
 
                             </div>
                             <!-- end col -->
@@ -1377,6 +1407,7 @@
                         <ol>
                             <li>
                                 <h5>SFTP</h5>
+                                <p>The SFTP components is used to send files through SSH File Transfer Protocol </p>
                                 <ul>
 
                                     <h6>
@@ -1479,6 +1510,7 @@
 
                             <li>
                                 <h5>FTP</h5>
+                                <p>The SFTP components is used to send files through File Transfer Protocol </p>
                                 <ul>
 
                                     <h6>
@@ -1590,6 +1622,8 @@
                                 <h4 id="line7_7">STRING
                                     <a href="#top">#back to top</a>
                                 </h4>
+                                <p> The following components work with string operations
+                                </p>
                             </div>
                             <!-- end col -->
                         </div>
@@ -1597,6 +1631,8 @@
                         <ol>
                             <li>
                                 <h5>FindString</h5>
+                                <p>The FindString components is used to find string (text) value in a source string (source
+                                    text) </p>
                                 <ul>
 
                                     <h6>
@@ -1679,6 +1715,8 @@
                                 <h4 id="line7_8">OS
                                     <a href="#top">#back to top</a>
                                 </h4>
+                                <p> The following components work with OS operations
+                                </p>
 
                             </div>
                             <!-- end col -->
@@ -1687,6 +1725,7 @@
                         <ol>
                             <li>
                                 <h5>LinuxCMD</h5>
+                                <p>The LinuxCMD components is used to run Linux commands</p>
                                 <ul>
 
                                     <h6>
@@ -1750,11 +1789,11 @@
                                         </h6>
                                     </bold>
                                     <li>
-                                        SSH_OUT -string
+                                        SSH_OUT variable - type STRING
 
                                     </li>
                                     <li>
-                                        LinuxCMD_1_RETCODE variable -type string
+                                        LinuxCMD_1_RETCODE variable - type STRING
                                     </li>
                                     <li>
                                         LinuxCMD_1_FILES variable - type TFILEs
@@ -1772,6 +1811,8 @@
                                 <h4 id="line7_9">DateTime
                                     <a href="#top">#back to top</a>
                                 </h4>
+                                <p> The following components work with date and time operations
+                                </p>
 
                             </div>
                             <!-- end col -->
@@ -1781,6 +1822,8 @@
                         <ol>
                             <li>
                                 <h5>GetDate</h5>
+                                <p>The GetDate components is used to convert a date value with a specific format into another
+                                    format </p>
                                 <ul>
 
                                     <h6>
