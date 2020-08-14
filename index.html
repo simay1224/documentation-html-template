@@ -179,7 +179,7 @@
 
                                 </ul>
                                 <li>
-                                    <a href="#trig">Triggering Components</a>
+                                    <a href="#trig">Triggering the Flow</a>
                                     <ul class="nav">
                                         <li>
                                             <a href="#trig_1">DEPLOY</a>
@@ -273,11 +273,11 @@
 
                                             <p>
                                                 The Robotick project was developed primarily as an initiative within Turkcell. It is an automation orchestration tool that
-                                                primarily automates daily tasks for the needs of operations teams.
+                                                automates daily tasks for the needs of operations teams.
 
                                             </p>
                                             <p>
-                                                Robotick that does not require installation and can be accessed through a single web browser. You can automate your repetitive
+                                                Robotick does not require installation and can be accessed through a single web browser. You can automate your repetitive
                                                 or periodic tasks using Robotick.
                                             </p>
 
@@ -557,7 +557,7 @@
                                                 </h6>
                                             </bold>
                                             <li>
-                                                PLSQLRESULT variable- - type STRING
+                                                PLSQLRESULT variable - type STRING
 
                                             </li>
 
@@ -687,7 +687,7 @@
                                                 COMPONENT NAME -name of the component
                                             </li>
                                             <li>
-                                                RESULTSET -retrieve the result of a component (for example select )
+                                                RESULTSET - retrieves the result of a component (for example SELECT component )
                                             </li>
                                             <li>
                                                 <ul>
@@ -980,7 +980,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        MOVE FOLDER -if ON, move the mail to the DESTIONATION FOLDER
+                                        MOVE FOLDER -if ON, move the mail to the destination folder
                                     </li>
                                     <li>
                                         <ul>
@@ -1064,7 +1064,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        SUBJECT CONTAINS -read mails whose subject contains this string
+                                        SUBJECT CONTAINS -reads mails whose subject contains this string
                                     </li>
                                     <li>
                                         <ul>
@@ -1078,7 +1078,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        FROM DATE -read mails which are from this date
+                                        FROM DATE -reads mails which are from this date
                                     </li>
                                     <li>
                                         <ul>
@@ -1092,7 +1092,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        SUBJECT CONTAINS -read mails whose body contains this string
+                                        SUBJECT CONTAINS -reads mails whose subject contains this string
                                     </li>
                                     <li>
                                         <ul>
@@ -1106,7 +1106,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        BODY CONTAINS -read mails whose body contains this string
+                                        BODY CONTAINS -reads mails whose body contains this string
                                     </li>
                                     <li>
                                         <ul>
@@ -1120,7 +1120,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        TYPE OF MAIL - read mails that are READ/UNREAD or ALL
+                                        TYPE OF MAIL - reads mails that are READ/UNREAD or ALL
                                     </li>
                                     <li>
                                         <ul>
@@ -1409,7 +1409,7 @@
                         <ol>
                             <li>
                                 <h5>SFTP</h5>
-                                <p>The SFTP components is used to send files through SSH File Transfer Protocol </p>
+                                <p>The SFTP component is used to send files through SSH File Transfer Protocol </p>
                                 <ul>
 
                                     <h6>
@@ -1512,7 +1512,7 @@
 
                             <li>
                                 <h5>FTP</h5>
-                                <p>The SFTP components is used to send files through File Transfer Protocol </p>
+                                <p>The FTP component is used to send files through File Transfer Protocol </p>
                                 <ul>
 
                                     <h6>
@@ -1693,13 +1693,13 @@
                                         </h6>
                                     </bold>
                                     <li>
-                                        FIND_RESULT variable - type string
+                                        FIND_RESULT variable - type STRING
                                     </li>
                                     <li>
-                                        FIND_OUT variable - type string
+                                        FIND_OUT variable - type STRING
                                     </li>
                                     <li>
-                                        COUNT variable - type string
+                                        COUNT variable - type STRING
                                     </li>
 
                                 </ul>
@@ -1734,11 +1734,15 @@
                                         Parameters:
                                     </h6>
                                     <li>
-                                        HOSTNAME - name of the component
+                                        COMPONENT NAME - name of the component
+                                    </li>
+                                    <li>
+                                        HOSTNAME - IP Address of the connected Server
                                     </li>
 
+
                                     <li>
-                                        COMMAND - The source where the user wants look in
+                                        COMMAND - Linux Shell command
                                     </li>
                                     <li>
                                         <ul>
@@ -1753,7 +1757,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        USERNAME - The source where the user wants look in
+                                        USERNAME - Username in the connected server
                                     </li>
                                     <li>
                                         <ul>
@@ -1768,7 +1772,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        PASSWORD - The source where the user wants look in
+                                        PASSWORD - Password for the username
                                     </li>
                                     <li>
                                         <ul>
