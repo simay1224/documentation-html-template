@@ -58,7 +58,7 @@
             // Treats lists items like an array, where each item can be accessed through      it's index
             for (i = 0; i < li.length; i++) {
                 item = li[i];
-                // Iterate over each list item to see if the value of the input, ignoring         case, matches the inner text or inner html of the item.
+                // Iterate over each list item to see if the value of the input, ignoring  case, matches the inner text or inner html of the item.
                 txtValue = item.textContent || item.innerText;
                 if (txtValue.toUpperCase().indexOf(filter) > -1) {
                     // Displays list items that are a match, and nothing if no match
@@ -148,31 +148,152 @@
                                 <a href="#line7">Components</a>
                                 <ul class="nav">
                                     <li>
-                                        <a href="#line7_1">DATABASE</a>
+                                        <a href="#line7_1"> DATABASE</a>
+                                        <ul class="nav">
+                                            <li>
+                                                <a href="#line7_1_1">
+                                                    Select
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#line7_1_2">
+                                                    PLSQLBlock
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#line7_1_3">
+                                                    DBConnection
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#line7_1_4">
+                                                    ExportResultSet
+                                                </a>
+                                            </li>
+                                        </ul>
+
+                                    </li>
+
+                                    <li>
+                                        <a href="#line7_2"> EMAIL</a>
+                                        <ul class="nav">
+                                            <li>
+                                                <a href="#line7_2_1">
+                                                    ConnectMailbox
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#line7_2_2">
+                                                    SendEmail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#line7_2_3">
+                                                    ChangeMailStatus
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#line7_2_4">
+                                                    ReadMail
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li>
-                                        <a href="#line7_2">EMAIL</a>
+                                        <a href="#line7_3"> DECISION</a>
+                                        <ul class="nav">
+                                            <li>
+
+                                                <a href="#line7_3_1">
+                                                    IfElse
+
+                                                </a>
+
+                                            </li>
+                                        </ul>
+
                                     </li>
                                     <li>
-                                        <a href="#line7_3">DECISION</a>
+                                        <a href="#line7_4"> &#9830 BIP</a>
+                                        <ul class="nav">
+                                            <li>
+
+                                                <a href="#line7_4_1">
+                                                    SendBipMessage
+                                                </a>
+
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li>
-                                        <a href="#line7_4">BIP</a>
+                                        <a href="#line7_5"> SMS</a>
+                                        <ul class="nav">
+                                            <li>
+
+                                                <a href="#line7_5_1">
+                                                    SendSMS
+                                                </a>
+
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li>
-                                        <a href="#line7_5">SMS</a>
+                                        <a href="#line7_6"> FILE</a>
+                                        <ul class="nav">
+                                            <li>
+
+                                                <a href="#line7_6_1">
+                                                    SFTP
+                                                </a>
+
+                                            </li>
+
+                                            <li>
+
+                                                <a href="#line7_6_2">
+                                                    FTP
+                                                </a>
+
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li>
-                                        <a href="#line7_6">FILE</a>
+                                        <a href="#line7_7"> STRING</a>
+                                        <ul class="nav">
+                                            <li>
+
+                                                <a href="#line7_7_1">
+                                                    FindString
+                                                </a>
+
+                                            </li>
+                                        </ul>
+
                                     </li>
                                     <li>
-                                        <a href="#line7_7">STRING</a>
+                                        <a href="#line7_8"> OS</a>
+                                        <ul class="nav">
+                                            <li>
+
+                                                <a href="#line7_8_1">
+                                                    LinuxCMD
+                                                </a>
+
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li>
-                                        <a href="#line7_8">OS</a>
-                                    </li>
-                                    <li>
-                                        <a href="#line7_9">DateTime</a>
+                                        <a href="#line7_9"> DateTime</a>
+                                        <ul class="nav">
+                                            <li>
+
+                                                <a href="#line7_8_1">
+                                                    GetDate
+                                                </a>
+
+                                            </li>
+                                        </ul>
+
                                     </li>
 
                                 </ul>
@@ -298,7 +419,15 @@
                                                 <bold> robotick\
                                                     <bold> in the URL section of your browser, and that will take you to login page
                                                         of the application</p>
-                                            Use your Turkcell username and password to log in.
+                                            <p>Use your LDAP username and password to log in.</p>
+                                            <p>
+                                                To be able to operate on Robotick, you must be involved in a project. If there is no Project Manager User who can include
+                                                you in the Project, you can send an e-mail to Robotick team to be included
+                                                in a project. (TEAM-RPA-CORE &ltTEAM-RPA-CORE@turkcell.entp.tgc&gt)
+                                            </p>
+                                            <p> If you are not involved in any project, an empty interface will welcome you after
+                                                login.
+                                            </p>
 
                                         </div>
                                     </div>
@@ -441,14 +570,14 @@
                                 </p>
                                 <ol>
                                     <li>
-                                        <h5>Select</h5>
+                                        <h5 id="line7_1_1">Select</h5>
                                         <p> The SELECT component is used to run SELECT query on a database connection</p>
                                         <ul>
                                             <h6>
                                                 Parameters:
                                             </h6>
                                             <li>
-                                                COMPONENT NAME - name of the component
+                                                COMPONENT NAME - name of the component. It is generated automatically.
                                             </li>
 
                                             <li>
@@ -499,14 +628,14 @@
                                     </li>
 
                                     <li>
-                                        <h5>PLSQLBlock</h5>
+                                        <h5 id="line7_1_2">PLSQLBlock</h5>
                                         <p> The PLSQLBlock component is used to run query on a database connection </p>
                                         <ul>
                                             <h6>
                                                 Parameters:
                                             </h6>
                                             <li>
-                                                COMPONENT NAME - name of the component
+                                                COMPONENT NAME - name of the component. It is generated automatically.
                                             </li>
                                             <li>
                                                 <ul>
@@ -564,14 +693,14 @@
 
                                     </li>
                                     <li>
-                                        <h5>DBConnection</h5>
+                                        <h5 id="line7_1_3">DBConnection</h5>
                                         <ul>
                                             <p> The DBConnection component is used to make a database connection </p>
                                             <h6>
                                                 Parameters:
                                             </h6>
                                             <li>
-                                                COMPONENT NAME -name of the component
+                                                COMPONENT NAME -name of the component. It is generated automatically.
                                             </li>
                                             <li>
                                                 DB TYPE -database type
@@ -588,14 +717,14 @@
                                                 </ul>
                                             </li>
                                             <li>
-                                                HOSTNAME -database host name
+                                                HOSTNAME - IP addres to connect
                                             </li>
                                             <li>
                                                 <ul>
                                                     <li> For example:
                                                         <ul>
                                                             <li>
-                                                                my-hostname.turkcell.tgc
+                                                                123.456.78.90
                                                             </li>
                                                         </ul>
                                                     </li>
@@ -674,7 +803,7 @@
 
                                     </li>
                                     <li>
-                                        <h5>ExportResultSet</h5>
+                                        <h5 id="line7_1_4">ExportResultSet</h5>
                                         <p> The ExportResultSet component is used to get a resultset of a component and export
                                             as a type of file </p>
                                         <ul>
@@ -682,7 +811,7 @@
                                                 Parameters:
                                             </h6>
                                             <li>
-                                                COMPONENT NAME -name of the component
+                                                COMPONENT NAME -name of the component. It is generated automatically.
                                             </li>
                                             <li>
                                                 RESULTSET - retrieves the result of a component (for example SELECT component )
@@ -756,7 +885,7 @@
                         <!-- end row -->
                         <ol>
                             <li>
-                                <h5>ConnectMailbox</h5>
+                                <h5 id="line7_2_1"> ConnectMailbox</h5>
                                 <p> The ConnectMailbox component is used to connect to a mailbox and return that session of connection
                                 </p>
                                 <ul>
@@ -764,7 +893,7 @@
                                         Parameters:
                                     </h6>
                                     <li>
-                                        COMPONENT NAME -name of the component
+                                        COMPONENT NAME -name of the component. It is generated automatically.
                                     </li>
                                     <li>
                                         URL -URL of the mailbox
@@ -826,7 +955,7 @@
 
                             </li>
                             <li>
-                                <h5>SendEmail</h5>
+                                <h5 id="line7_2_2">SendEmail</h5>
                                 <p> The SendEmail component is used to send an email
                                 </p>
 
@@ -835,7 +964,7 @@
                                         Parameters:
                                     </h6>
                                     <li>
-                                        COMPONENT NAME -name of the component
+                                        COMPONENT NAME -name of the component. It is generated automatically.
                                     </li>
                                     <li>
                                         <ul>
@@ -924,7 +1053,7 @@
 
                             </li>
                             <li>
-                                <h5>ChangeMailStatus</h5>
+                                <h5 id="line7_2_3">ChangeMailStatus</h5>
                                 <p> The ChangeMailStatus component is used to change the mail status
                                 </p>
                                 <ul>
@@ -933,7 +1062,7 @@
                                         Parameters:
                                     </h6>
                                     <li>
-                                        COMPONENT NAME -name of the component
+                                        COMPONENT NAME -name of the component. It is generated automatically.
                                     </li>
                                     <li>
                                         SESSION -Session of mailbox connection
@@ -1008,7 +1137,7 @@
 
                             </li>
                             <li>
-                                <h5>ReadMail</h5>
+                                <h5 id="line7_2_4">ReadMail</h5>
                                 <p> The ReadMail component is used to read mail in a specific session (connection) based on the
                                     optional conditions given below (such as "SUBJECT CONTAINS", "BODY CONTAINS" etc)
                                 </p>
@@ -1017,7 +1146,7 @@
                                         Parameters:
                                     </h6>
                                     <li>
-                                        COMPONENT NAME -name of the component
+                                        COMPONENT NAME -name of the component. It is generated automatically.
                                     </li>
                                     <li>
                                         SESSION -Session of mailbox connection
@@ -1179,7 +1308,7 @@
 
                         <ol>
                             <li>
-                                <h5>IfElse</h5>
+                                <h5 id="line7_3_1">IfElse</h5>
                                 <p>The IfElse components is used to set up conditions for specific operations to be exefcutd,
                                     or not executed</p>
                                 <ul>
@@ -1193,7 +1322,7 @@
                                         Parameters:
                                     </h6>
                                     <li>
-                                        COMPONENT NAME - name of the component
+                                        COMPONENT NAME - name of the component. It is generated automatically.
                                     </li>
 
                                     <li>
@@ -1201,15 +1330,80 @@
                                     </li>
                                     <li>
                                         <ul>
-                                            <li> For example:
+                                            <li>
+                                                The following operators can be used:
                                                 <ul>
                                                     <li>
-                                                        FindString_1_FIND_RESULT == 'true'
+                                                        &lt less than
                                                     </li>
                                                     <li>
-                                                        FindString_1_FIND_RESULT == 'false'
+                                                        &gt greater than
+                                                    </li>
+                                                    <li>
+                                                        == equals to
+                                                    </li>
+                                                    <li>
+                                                        != not equals to
                                                     </li>
                                                 </ul>
+                                            </li>
+                                            <li> The user can control different parameters from various components. For example:
+                                                <ol>
+                                                    <li>FindString component
+                                                        <ul>Find_result: 'true ', 'false' depending on the result found.
+
+                                                            <li>
+                                                                For example: FindString_1_FIND_RESULT == true
+                                                            </li>
+
+                                                        </ul>
+                                                        <ul>Count: Number of results found
+
+                                                            <li>
+                                                                For example: FindString_1_COUNT == ‘4’
+
+                                                            </li>
+
+                                                        </ul>
+                                                        <ul>Find_Out: Returns the entire line where the word is a match
+
+                                                            <li>
+                                                                For example: FindString_1_FIND_OUT == ‘Bu satırda alarm kelimesi geçti’
+                                                            </li>
+
+                                                        </ul>
+                                                    </li>
+                                                    <li>LinuxCMD component
+                                                        <ul>SSH_out: The text the command returned as a result
+
+                                                            <li>
+                                                                For example: LinuxCMD_1_SSH_OUT == true ’, false
+                                                            </li>
+
+                                                        </ul>
+                                                        <ul>Retcode: Returns '1' if the command runs successfully, and '0' if
+                                                            unsuccessful.
+
+                                                            <li>
+                                                                For example: Örnek: LinuxCMD_1_RETCODE == ‘1’
+
+                                                            </li>
+
+                                                        </ul>
+                                                    </li>
+                                                    <li>ReadMail component
+                                                        <ul>Result: 'True' if the mail was found under the search conditions,
+                                                            false if not.
+
+                                                            <li>
+                                                                For example: Örnek: ReadMail_1_RESULT == ‘ true
+                                                            </li>
+
+                                                        </ul>
+                                                    </li>
+
+
+                                                </ol>
                                             </li>
                                         </ul>
                                     </li>
@@ -1250,7 +1444,7 @@
 
                         <ol>
                             <li>
-                                <h5>SendBipMessage</h5>
+                                <h5 id="line7_4_1">SendBipMessage</h5>
                                 <p>The SendBipMessage components is used to send BIP messages</p>
                                 <ul>
 
@@ -1258,7 +1452,7 @@
                                         Parameters:
                                     </h6>
                                     <li>
-                                        COMPONENT NAME - name of the component
+                                        COMPONENT NAME - name of the component. It is generated automatically.
                                     </li>
 
                                     <li>
@@ -1329,7 +1523,7 @@
 
                         <ol>
                             <li>
-                                <h5>SendSMS</h5>
+                                <h5 id="line7_5_1">SendSMS</h5>
                                 <p>The SendSMS components is used to send SMS messages</p>
                                 <ul>
 
@@ -1337,7 +1531,7 @@
                                         Parameters:
                                     </h6>
                                     <li>
-                                        COMPONENT NAME - name of the component
+                                        COMPONENT NAME - name of the component. It is generated automatically.
                                     </li>
 
                                     <li>
@@ -1395,7 +1589,9 @@
                                 <h4 id="line7_6">FILE
                                     <a href="#top">#back to top</a>
                                 </h4>
-                                <p> The following components work with file operations
+                                <p> The following components work with file transfer operations. The only difference between
+                                    SFTP and FTP is that they use is the protocol. You can transfer files with higher security
+                                    with SFTP.
                                 </p>
 
                             </div>
@@ -1406,13 +1602,16 @@
 
                         <ol>
                             <li>
-                                <h5>SFTP</h5>
+                                <h5 id="line7_6_1">SFTP</h5>
                                 <p>The SFTP component is used to send files through SSH File Transfer Protocol </p>
                                 <ul>
 
                                     <h6>
                                         Parameters:
                                     </h6>
+                                    <li>
+                                        COMPONENT NAME - name of the component. It is generated automatically.
+                                    </li>
                                     <li>
                                         HOST NAME - IP addres to connect
                                     </li>
@@ -1509,7 +1708,7 @@
                             </li>
 
                             <li>
-                                <h5>FTP</h5>
+                                <h5 id="line7_6_2">FTP</h5>
                                 <p>The FTP component is used to send files through File Transfer Protocol </p>
                                 <ul>
 
@@ -1630,7 +1829,7 @@
 
                         <ol>
                             <li>
-                                <h5>FindString</h5>
+                                <h5 id="line7_7_1">FindString</h5>
                                 <p>The FindString components is used to find string (text) value in a source string (source
                                     text) </p>
                                 <ul>
@@ -1639,7 +1838,7 @@
                                         Parameters:
                                     </h6>
                                     <li>
-                                        COMPONENT NAME - name of the component
+                                        COMPONENT NAME - name of the component. It is generated automatically.
                                     </li>
 
                                     <li>
@@ -1724,7 +1923,7 @@
                         <!-- end row -->
                         <ol>
                             <li>
-                                <h5>LinuxCMD</h5>
+                                <h5 id="line7_8_1">LinuxCMD</h5>
                                 <p>The LinuxCMD components is used to run Linux commands</p>
                                 <ul>
 
@@ -1732,7 +1931,7 @@
                                         Parameters:
                                     </h6>
                                     <li>
-                                        COMPONENT NAME - name of the component
+                                        COMPONENT NAME - name of the component. It is generated automatically.
                                     </li>
                                     <li>
                                         <ul>
@@ -1849,7 +2048,7 @@
 
                         <ol>
                             <li>
-                                <h5>GetDate</h5>
+                                <h5 id="line7_9_1">GetDate</h5>
                                 <p>The GetDate components is used to convert a date value with a specific format into another
                                     format </p>
                                 <ul>
@@ -1858,7 +2057,7 @@
                                         Parameters:
                                     </h6>
                                     <li>
-                                        COMPONENT NAME - name of the component
+                                        COMPONENT NAME - name of the component. It is generated automatically.
                                     </li>
 
                                     <li>
@@ -2047,7 +2246,7 @@
                                         <ul>
 
                                             <li>
-                                                Has access to: Dashboard, project list, flow editor, flow list, execution history, tutorial, create new project, user managemenet
+                                                Has access to: Project list, flow editor, flow list, execution history, tutorial, create new project, user managemenet
                                             </li>
 
                                         </ul>
@@ -2060,7 +2259,7 @@
                                         <ul>
 
                                             <li>
-                                                Has access to: Dashboard, project list, flow editor, flow list, execution history, tutorial
+                                                Has access to: Project list, flow editor, flow list, execution history, tutorial
                                             </li>
 
                                         </ul>
@@ -2071,7 +2270,7 @@
                                         <ul>
 
                                             <li>
-                                                Has access to: Dashboard, project list, flow list, execution history, tutorial
+                                                Has access to: Project list, flow list, execution history, tutorial
                                             </li>
 
                                         </ul>

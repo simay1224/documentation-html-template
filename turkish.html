@@ -151,30 +151,147 @@
                                 <ul class="nav">
                                     <li>
                                         <a href="#line7_1">VERİTABANI (DATABASE) </a>
+                                        <ul class="nav">
+                                            <li>
+                                                <a href="#line7_1_1">
+                                                    Select
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#line7_1_2">
+                                                    PLSQLBlock
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#line7_1_3">
+                                                    DBConnection
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#line7_1_4">
+                                                    ExportResultSet
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li>
                                         <a href="#line7_2">E-POSTA (EMAIL) </a>
+                                        <ul class="nav">
+                                            <li>
+                                                <a href="#line7_2_1">
+                                                    ConnectMailbox
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#line7_2_2">
+                                                    SendEmail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#line7_2_3">
+                                                    ChangeMailStatus
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#line7_2_4">
+                                                    ReadMail
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li>
                                         <a href="#line7_3">KARAR (DECISION)</a>
+                                        <ul class="nav">
+                                            <li>
+
+                                                <a href="#line7_3_1">
+                                                    IfElse
+
+                                                </a>
+
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li>
                                         <a href="#line7_4">BIP</a>
+
+                                        <ul class="nav">
+                                            <li>
+
+                                                <a href="#line7_4_1">
+                                                    SendBipMessage
+                                                </a>
+
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li>
                                         <a href="#line7_5">SMS</a>
+                                        <ul class="nav">
+                                            <li>
+
+                                                <a href="#line7_5_1">
+                                                    SendSMS
+                                                </a>
+
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li>
                                         <a href="#line7_6">DOSYA (FILE)</a>
+                                        <ul class="nav">
+                                            <li>
+
+                                                <a href="#line7_6_1">
+                                                    SFTP
+                                                </a>
+
+                                            </li>
+
+                                            <li>
+
+                                                <a href="#line7_6_2">
+                                                    FTP
+                                                </a>
+
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li>
                                         <a href="#line7_7">DİZE (STRING) </a>
+                                        <ul class="nav">
+                                            <li>
+
+                                                <a href="#line7_7_1">
+                                                    FindString
+                                                </a>
+
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li>
                                         <a href="#line7_8">İŞLETİM SİSTEMİ (OS)</a>
+                                        <ul class="nav">
+                                            <li>
+
+                                                <a href="#line7_8_1">
+                                                    LinuxCMD
+                                                </a>
+
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li>
                                         <a href="#line7_9"> TARİH SAAT(DateTime)</a>
+                                        <ul class="nav">
+                                            <li>
+
+                                                <a href="#line7_9_1">
+                                                    GetDate
+                                                </a>
+
+                                            </li>
+                                        </ul>
                                     </li>
 
                                 </ul>
@@ -299,8 +416,15 @@
                                             <p>Tarayıcınızın URL bölümüne robotick \ yazın ve bu sizi uygulamanın oturum açma
                                                 sayfasına götürür
                                             </p>
-                                            Oturum açmak için Turkcell kullanıcı adınızı ve şifrenizi kullanın.
-
+                                            <p>
+                                                Oturum açmak için LDAP kullanıcı adınızı ve şifrenizi kullanın.
+                                            </p>
+                                            <p>
+                                                Robotick’te işlem yapabilmek için bir projeye dahil olmalısınız. Sizi Projeye dahil edebilecek bir Project Manager User yoksa
+                                                Robotick ekibine bir projeye dahil edilmeniz için mail atabilirsiniz. (TEAM-RPA-CORE
+                                                &ltTEAM-RPA-CORE@turkcell.entp.tgc&gt)
+                                            </p>
+                                            <p>Hiçbir bir projeye dahil değilseniz login sonrasında sizi boş bir ara yüz karşılayacaktır.</p>
                                         </div>
                                     </div>
 
@@ -441,14 +565,14 @@
                                 </p>
                                 <ol>
                                     <li>
-                                        <h5>Select</h5>
+                                        <h5 id="line7_1_1">Select</h5>
                                         <p> SELECT bileşeni, bir veritabanı bağlantısında SELECT sorgusunu çalıştırmak için kullanılır</p>
                                         <ul>
                                             <h6>
                                                 Parameters:
                                             </h6>
                                             <li>
-                                                COMPONENT NAME - bileşenin adı
+                                                COMPONENT NAME - bileşenin adı. Otomatik oluşturulur.
                                             </li>
 
                                             <li>
@@ -499,26 +623,16 @@
                                     </li>
 
                                     <li>
-                                        <h5>PLSQLBlock</h5>
+                                        <h5 id="line7_1_2">PLSQLBlock</h5>
                                         <p> PLSQLBlock bileşeni, bir veritabanı bağlantısında sorgu çalıştırmak için kullanılır</p>
                                         <ul>
                                             <h6>
                                                 Parametreler:
                                             </h6>
                                             <li>
-                                                COMPONENT NAME - bileşenin adı
+                                                COMPONENT NAME - bileşenin adı. Otomatik oluşturulur.
                                             </li>
-                                            <li>
-                                                <ul>
-                                                    <li> Örneğin:
-                                                        <ul>
-                                                            <li>
-                                                                BENİM_ADIM
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
+
                                             <li>
                                                 CONNECTION - Bağlantı. Mevcut DB bağlantılarından seçim yapın
                                             </li>
@@ -564,14 +678,14 @@
 
                                     </li>
                                     <li>
-                                        <h5>DBConnection</h5>
+                                        <h5 id="line7_1_3">DBConnection</h5>
                                         <ul>
                                             <p> DBConnection bileşeni, bir veritabanı bağlantısı yapmak için kullanılır </p>
                                             <h6>
                                                 Parametreler:
                                             </h6>
                                             <li>
-                                                COMPONENT NAME - bileşenin adı
+                                                COMPONENT NAME - bileşenin adı. Otomatik oluşturulur.
                                             </li>
                                             <li>
                                                 DB TYPE - veritabanı türü
@@ -588,14 +702,14 @@
                                                 </ul>
                                             </li>
                                             <li>
-                                                HOSTNAME - veritabanı ana bilgisayar adı
+                                                HOSTNAME - Bağlanılacak IP adresi
                                             </li>
                                             <li>
                                                 <ul>
                                                     <li> Örneğin:
                                                         <ul>
                                                             <li>
-                                                                my-hostname.turkcell.tgc
+                                                                123.456.78.90
                                                             </li>
                                                         </ul>
                                                     </li>
@@ -674,7 +788,7 @@
 
                                     </li>
                                     <li>
-                                        <h5>ExportResultSet</h5>
+                                        <h5 id="line7_1_4">ExportResultSet</h5>
                                         <p> ExportResultSet bileşeni, bir bileşenin sonuç kümesini almak ve dosya türü olarak
                                             dışa aktarmak için kullanılır.
                                         </p>
@@ -683,7 +797,7 @@
                                                 Parametreler:
                                             </h6>
                                             <li>
-                                                COMPONENT NAME -name of the component
+                                                COMPONENT NAME - bileşenin adı. Otomatik oluşturulur.
                                             </li>
                                             <li>
                                                 RESULTSET - Sonuç kümesi. Bir bileşenin sonucunu verir (örneğin SELECT bileşeni)
@@ -757,7 +871,7 @@
                         <!-- end row -->
                         <ol>
                             <li>
-                                <h5>ConnectMailbox</h5>
+                                <h5 id="line7_2_1">ConnectMailbox</h5>
                                 <p> ConnectMailbox bileşeni, bir posta kutusuna bağlanmak ve bu bağlantı oturumuna geri dönmek
                                     için kullanılır
                                 </p>
@@ -766,7 +880,7 @@
                                         Parametreler:
                                     </h6>
                                     <li>
-                                        COMPONENT NAME - bileşenin adı
+                                        COMPONENT NAME - bileşenin adı. Otomatik oluşturulur.
                                     </li>
                                     <li>
                                         URL - Posta kutusunun URL'si
@@ -827,7 +941,7 @@
 
                                 </li>
                                 <li>
-                                    <h5>SendEmail</h5>
+                                    <h5 id="line7_2_2">SendEmail</h5>
                                     <p> SendEmail bileşeni bir e-posta göndermek için kullanılır</p>
 
                                     <ul>
@@ -835,19 +949,9 @@
                                             Parametreler:
                                         </h6>
                                         <li>
-                                            COMPONENT NAME -bileşenin adı
+                                            COMPONENT NAME -bileşenin adı. Otomatik oluşturulur.
                                         </li>
-                                        <li>
-                                            <ul>
-                                                <li> For example:
-                                                    <ul>
-                                                        <li>
-                                                            E-Posta Gönder_1
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
+
                                         <li>
                                             TO - E-posta alacak e-posta adresi
                                         </li>
@@ -924,7 +1028,7 @@
 
                                 </li>
                                 <li>
-                                    <h5>ChangeMailStatus</h5>
+                                    <h5 id="line7_2_3">ChangeMailStatus</h5>
                                     <p> ChangeMailStatus bileşeni, posta durumunu değiştirmek için kullanılır </p>
                                     <ul>
 
@@ -932,7 +1036,7 @@
                                             Parametreler:
                                         </h6>
                                         <li>
-                                            COMPONENT NAME - bileşenin adı
+                                            COMPONENT NAME - bileşenin adı. Otomatik oluşturulur.
                                         </li>
                                         <li>
                                             SESSION - Posta kutusu bağlantısı oturumu
@@ -1007,7 +1111,7 @@
 
                                 </li>
                                 <li>
-                                    <h5>ReadMail</h5>
+                                    <h5 id="line7_2_4">ReadMail</h5>
                                     <p> ReadMail bileşeni, aşağıda verilen isteğe bağlı koşullara ("SUBJECT CONTAINS", "BODY
                                         CONTAINS" vb.) Göre belirli bir oturumdaki postayı okumak için kullanılır.
                                     </p>
@@ -1016,7 +1120,7 @@
                                             Parametreler:
                                         </h6>
                                         <li>
-                                            COMPONENT NAME -bileşenin adı
+                                            COMPONENT NAME -bileşenin adı. Otomatik oluşturulur.
                                         </li>
                                         <li>
                                             SESSION -Posta kutusu bağlantısı oturumu
@@ -1179,7 +1283,7 @@
 
                         <ol>
                             <li>
-                                <h5>IfElse</h5>
+                                <h5 id="line7_3_1">IfElse</h5>
                                 <p>IfElse bileşenleri, çalıştırılacak veya yürütülemeyecek belirli işlemlerin koşullarını ayarlamak
                                     için kullanılır.</p>
                                 <ul>
@@ -1193,7 +1297,7 @@
                                         Parametreler:
                                     </h6>
                                     <li>
-                                        COMPONENT NAME - bileşenin adı
+                                        COMPONENT NAME - bileşenin adı. Otomatik oluşturulur.
                                     </li>
 
                                     <li>
@@ -1201,18 +1305,83 @@
                                     </li>
                                     <li>
                                         <ul>
-                                            <li> Örneğin:
+                                            <li>
+                                                Aşağıdaki operatörler kullanılabilir:
                                                 <ul>
                                                     <li>
-                                                        FindString_1_FIND_RESULT == 'true'
+                                                        &lt less than
                                                     </li>
                                                     <li>
-                                                        FindString_1_FIND_RESULT == 'false'
+                                                        &gt greater than
+                                                    </li>
+                                                    <li>
+                                                        == equals to
+                                                    </li>
+                                                    <li>
+                                                        != not equals to
                                                     </li>
                                                 </ul>
                                             </li>
+                                            <li>
+                                                Kullanıcı, çeşitli bileşenlerden farklı parametreleri kontrol edebilir. Örneğin:
+                                                <ol>
+                                                    <li>FindString component
+                                                        <ul>Find_result: Sonucun bulunması durumuna göre true ’, false
+
+                                                            <li>
+                                                                Örneğin:FindString_1_FIND_RESULT == true
+                                                            </li>
+
+                                                        </ul>
+                                                        <ul>Count: Bulunan sonuç sayısı
+
+                                                            <li>
+                                                                Örneğin: FindString_1_COUNT == ‘4’
+
+                                                            </li>
+
+                                                        </ul>
+                                                        <ul>Find_Out: Kelimenin match olduğu tüm satırı döner
+
+                                                            <li>
+                                                                Örneğin: FindString_1_FIND_OUT == ‘Bu satırda alarm kelimesi geçti’
+                                                            </li>
+
+                                                        </ul>
+                                                    </li>
+                                                    <li>LinuxCMD component
+                                                        <ul>SSH_out: Komutun sonuç olarak döndüğü metin
+
+                                                            <li>
+                                                                Örneğin: LinuxCMD_1_SSH_OUT == true ’, false
+                                                            </li>
+
+                                                        </ul>
+                                                        <ul>Retcode: Komut başarılı çalıştırsa ‘1’, başarızıs ise ‘0’ döner
+
+                                                            <li>
+                                                                Örneğin: LinuxCMD_1_RETCODE == ‘1’
+
+                                                            </li>
+
+                                                        </ul>
+                                                    </li>
+                                                    <li>ReadMail component
+                                                        <ul>Result: Aranan koşullarda mail bulduysa 'true', bulamadıysa 'false'
+
+                                                            <li>
+                                                                Örneğin: ReadMail_1_RESULT == ‘ true
+                                                            </li>
+
+                                                        </ul>
+                                                    </li>
+
+
+                                                </ol>
+                                            </li>
                                         </ul>
                                     </li>
+
                                 </ul>
                                 <ul>
                                     <bold>
@@ -1250,7 +1419,7 @@
 
                         <ol>
                             <li>
-                                <h5>SendBipMessage</h5>
+                                <h5 id="line7_4_1">SendBipMessage</h5>
                                 <p>SendBipMessage bileşenleri, BIP mesajlarını göndermek için kullanılır</p>
                                 <ul>
 
@@ -1258,7 +1427,7 @@
                                         Parametreler:
                                     </h6>
                                     <li>
-                                        COMPONENT NAME - bileşenin adı
+                                        COMPONENT NAME - bileşenin adı. Otomatik oluşturulur.
                                     </li>
 
                                     <li>
@@ -1329,7 +1498,7 @@
 
                         <ol>
                             <li>
-                                <h5>SendSMS</h5>
+                                <h5 id="line7_5_1">SendSMS</h5>
                                 <p>TSendSMS bileşenleri, SMS mesajları göndermek için kullanılır
                                 </p>
                                 <ul>
@@ -1338,7 +1507,7 @@
                                         Parametreler:
                                     </h6>
                                     <li>
-                                        COMPONENT NAME - bileşenin adı
+                                        COMPONENT NAME - bileşenin adı. Otomatik oluşturulur.
                                     </li>
 
                                     <li>
@@ -1407,7 +1576,7 @@
 
                         <ol>
                             <li>
-                                <h5>SFTP</h5>
+                                <h5 id="line7_6_1">SFTP</h5>
                                 <p>SFTP bileşenleri, dosyaları SSH Dosya Aktarım Protokolü aracılığıyla göndermek için kullanılır
                                 </p>
                                 <ul>
@@ -1511,7 +1680,7 @@
                             </li>
 
                             <li>
-                                <h5>FTP</h5>
+                                <h5 id="line7_6_2">FTP</h5>
                                 <p>
                                     FTP bileşeni, dosyaları Dosya Aktarım Protokolü aracılığıyla göndermek için kullanılır
                                 </p>
@@ -1633,7 +1802,7 @@
 
                         <ol>
                             <li>
-                                <h5>FindString</h5>
+                                <h5 id="line7_7_1">FindString</h5>
                                 <p>FindString bileşenleri, bir kaynak dizede (kaynak metin) dize (metin) değerini bulmak için
                                     kullanılır. </p>
                                 <ul>
@@ -1642,7 +1811,7 @@
                                         Parametreler:
                                     </h6>
                                     <li>
-                                        COMPONENT NAME - bileşenin adı
+                                        COMPONENT NAME - bileşenin adı. Otomatik oluşturulur.
                                     </li>
 
                                     <li>
@@ -1727,7 +1896,7 @@
                         <!-- end row -->
                         <ol>
                             <li>
-                                <h5>LinuxCMD</h5>
+                                <h5 id="line7_8_1">LinuxCMD</h5>
                                 <p>LinuxCMD bileşenleri, Linux komutlarını çalıştırmak için kullanılır</p>
                                 <ul>
 
@@ -1735,20 +1904,9 @@
                                         Parametreler:
                                     </h6>
                                     <li>
-                                        COMPONENT NAME - bileşenin adı
+                                        COMPONENT NAME - bileşenin adı. Otomatik oluşturulur.
                                     </li>
-                                    <li>
-                                        <ul>
-                                            <li> Örneğin:
-                                                <ul>
-                                                    <li>
-                                                        LinuxCMD_2
-                                                    </li>
 
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
                                     <li>
                                         HOSTNAME- Bağlı Sunucunun IP Adresi
                                     </li>
@@ -1851,7 +2009,7 @@
 
                         <ol>
                             <li>
-                                <h5>GetDate</h5>
+                                <h5 id="line7_9_1">GetDate</h5>
                                 <p>GetDate bileşenleri, belirli bir biçime sahip bir tarih değerini başka bir biçime dönüştürmek
                                     için kullanılır </p>
                                 <ul>
@@ -1860,7 +2018,7 @@
                                         Parametreler:
                                     </h6>
                                     <li>
-                                        COMPONENT NAME - bileşenin adı
+                                        COMPONENT NAME - bileşenin adı. Otomatik oluşturulur.
                                     </li>
 
                                     <li>
@@ -2051,8 +2209,8 @@
                                         <ul>
 
                                             <li>
-                                                Şunlara erişebilir: Gösterge tablosu, proje listesi, akış düzenleyici, akış listesi, yürütme geçmişi, dökümantasyon, yeni
-                                                proje oluşturma, kullanıcı yönetimi
+                                                Şunlara erişebilir: Proje listesi, akış düzenleyici, akış listesi, yürütme geçmişi, dökümantasyon, yeni proje oluşturma,
+                                                kullanıcı yönetimi
                                             </li>
 
                                         </ul>
@@ -2065,7 +2223,7 @@
                                         <ul>
 
                                             <li>
-                                                Şunlara erişim vardır: Gösterge tablosu, proje listesi, akış düzenleyici, akış listesi, yürütme geçmişi, dökümantasyon
+                                                Şunlara erişim vardır: Proje listesi, akış düzenleyici, akış listesi, yürütme geçmişi, dökümantasyon
                                             </li>
 
                                         </ul>
@@ -2076,7 +2234,7 @@
                                         <ul>
 
                                             <li>
-                                                Şunlara erişebilir: Gösterge tablosu, proje listesi, akış listesi, yürütme geçmişi, dökümantasyon
+                                                Şunlara erişebilir: Proje listesi, akış listesi, yürütme geçmişi, dökümantasyon
                                             </li>
 
                                         </ul>
