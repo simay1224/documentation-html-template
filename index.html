@@ -639,17 +639,7 @@
                                             <li>
                                                 COMPONENT NAME - name of the component. It is generated automatically.
                                             </li>
-                                            <li>
-                                                <ul>
-                                                    <li> For example:
-                                                        <ul>
-                                                            <li>
-                                                                MY_NAME
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
+
                                             <li>
                                                 CONNECTION - Choose from existing DB connections
                                             </li>
@@ -818,7 +808,8 @@
                                                 COMPONENT NAME -name of the component. It is generated automatically.
                                             </li>
                                             <li>
-                                                RESULTSET - retrieves the result of a component (for example SELECT component )
+                                                RESULTSET - The SQL Select components that create the TResultSet output in Flow will be listed here. Select the query result
+                                                you want to export.
                                             </li>
                                             <li>
                                                 <ul>
@@ -832,7 +823,7 @@
                                                 </ul>
                                             </li>
                                             <li>
-                                                OUTPUT TYPE -output the result of the RESULTSET
+                                                OUTPUT TYPE - Select the format in which you want to export the query result. Options: Excel, HTML.
                                             </li>
                                             <li>
                                                 <ul>
@@ -843,8 +834,16 @@
                                                             </li>
                                                         </ul>
                                                     </li>
+                                                    <li>
+                                                        Note: HTML option will generate output in THTML format that allows you to embed the query result in the email body part as
+                                                        a table. You can use this output by adding $ {ExportResultset_xXx_HTML}
+                                                        to the body part of the send email component. You can use it by adding
+                                                        the THTML output name. You can see the THTML output name in component
+                                                        Flow variables.
+                                                    </li>
                                                 </ul>
                                             </li>
+
                                         </ul>
                                         <ul>
                                             <bold>
@@ -890,7 +889,8 @@
                         <ol>
                             <li>
                                 <h5 id="line7_2_1"> ConnectMailbox</h5>
-                                <p> The ConnectMailbox component is used to connect to a mailbox and return that session of connection
+                                <p>
+                                    The ConnectMailbox component performs the email server connection required for Robotick to read your emails.
                                 </p>
                                 <ul>
                                     <h6>
@@ -960,7 +960,11 @@
                             </li>
                             <li>
                                 <h5 id="line7_2_2">SendEmail</h5>
-                                <p> The SendEmail component is used to send an email
+                                <p>
+                                    The SendEmail component allows you to send Email. Dynamic parameters and file attachment can be made to sent emails. Body
+                                    and subject sections can be sent parametric emails with the format $ {Another Component
+                                    Output}. An email can be sent to more than one user by adding semicolons between the
+                                    addresses in the To parameter.
                                 </p>
 
                                 <ul>
@@ -970,17 +974,7 @@
                                     <li>
                                         COMPONENT NAME -name of the component. It is generated automatically.
                                     </li>
-                                    <li>
-                                        <ul>
-                                            <li> For example:
-                                                <ul>
-                                                    <li>
-                                                        E-Posta Gönder_1
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
+
                                     <li>
                                         TO - e-mail adress which will receive email
                                     </li>
@@ -1058,8 +1052,10 @@
                             </li>
                             <li>
                                 <h5 id="line7_2_3">ChangeMailStatus</h5>
-                                <p> The ChangeMailStatus component is used to change the mail status
-                                </p>
+                                <p>
+                                    The ChangeMailStatus component can change the status of the email in the folder you specified in the ReadMail_1_ID parameter,
+                                    which is the output of the ReadMail Component, to read / unread and move it to the folder
+                                    you specify. </p>
                                 <ul>
 
                                     <h6>
@@ -1069,7 +1065,7 @@
                                         COMPONENT NAME -name of the component. It is generated automatically.
                                     </li>
                                     <li>
-                                        SESSION -Session of mailbox connection
+                                        SESSION - Email box link you want to read. It comes as the output of the Connect Mailbox component.
                                     </li>
                                     <li>
                                         <ul>
@@ -1083,7 +1079,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        ID - Which email to read?
+                                        ID - The email ID whose status you want to change or move. It comes as the output of the ReadMail component.
                                     </li>
                                     <li>
                                         <ul>
@@ -1097,7 +1093,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        CHANGE READ STATUS -change to status to READ or UNREAD
+                                        CHANGE READ STATUS - What do you want to do with the status of the email? READ / NOT READ.
                                     </li>
                                     <li>
                                         <ul>
@@ -1111,14 +1107,18 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        MOVE FOLDER -if ON, move the mail to the destination folder
+                                        MOVE FOLDER - Do you want to move the email to another folder? If it is ON, yes.
+                                    </li>
+
+                                    <li>
+                                        DESTINATION FOLDER - The folder to which the email is to be moved
                                     </li>
                                     <li>
                                         <ul>
                                             <li> For example:
                                                 <ul>
                                                     <li>
-                                                        OTOMASYON
+                                                        OTOMASYON_FOLDER
                                                     </li>
                                                 </ul>
                                             </li>
@@ -1142,8 +1142,8 @@
                             </li>
                             <li>
                                 <h5 id="line7_2_4">ReadMail</h5>
-                                <p> The ReadMail component is used to read mail in a specific session (connection) based on the
-                                    optional conditions given below (such as "SUBJECT CONTAINS", "BODY CONTAINS" etc)
+                                <p> The ReadMail component allows Robotick to find and read the mails in the folder you specified
+                                    in your mailbox according to the words you specify.
                                 </p>
                                 <ul>
                                     <h6>
@@ -1153,7 +1153,7 @@
                                         COMPONENT NAME -name of the component. It is generated automatically.
                                     </li>
                                     <li>
-                                        SESSION -Session of mailbox connection
+                                        SESSION - Email box link you want to read
                                     </li>
                                     <li>
                                         <ul>
@@ -1167,7 +1167,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        FOLDER - from which folder
+                                        FOLDER - Email folder you want to check
                                     </li>
                                     <li>
                                         <ul>
@@ -1181,21 +1181,21 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        FROM - from who
+                                        FROM - The sender email address you want to check
                                     </li>
                                     <li>
                                         <ul>
                                             <li> For example:
                                                 <ul>
                                                     <li>
-                                                        USERNAME@turkcell.com.tr
+                                                        username@turkcell.com.tr
                                                     </li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
-                                        SUBJECT CONTAINS -reads mails whose subject contains this string
+                                        SUBJECT CONTAINS - Text in the subject section
                                     </li>
                                     <li>
                                         <ul>
@@ -1209,49 +1209,36 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        FROM DATE -reads mails which are from this date
+                                        FROM DATE - Checks the mails received after the given date
                                     </li>
                                     <li>
                                         <ul>
                                             <li> For example:
                                                 <ul>
                                                     <li>
-                                                        Select a date from the drop down calendar
+                                                        Select a date from the pop-up calendar.
                                                     </li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
                                     <li>
-                                        SUBJECT CONTAINS -reads mails whose subject contains this string
+                                        BODY CONTAINS - Text fragment in body
                                     </li>
                                     <li>
                                         <ul>
                                             <li> For example:
                                                 <ul>
                                                     <li>
-                                                        Aksiyon bekleniyor
+                                                        Action expected
                                                     </li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
+
                                     <li>
-                                        BODY CONTAINS -reads mails whose body contains this string
-                                    </li>
-                                    <li>
-                                        <ul>
-                                            <li> For example:
-                                                <ul>
-                                                    <li>
-                                                        Fatura detay
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        TYPE OF MAIL - reads mails that are READ/UNREAD or ALL
+                                        TYPE OF MAIL - Checks for READ, UNREAD, or ALL mails
                                     </li>
                                     <li>
                                         <ul>
@@ -1316,12 +1303,12 @@
                                 <p>The IfElse components is used to set up conditions for specific operations to be exefcutd,
                                     or not executed</p>
                                 <ul>
-                                    <p>The IfElse component is different from other components.When the user connects this component
-                                        to a next one through an arrow, click on the arrow and the user can see that arrow
-                                        itself is a component as well. When the user click on the arrow, the user can see
-                                        that the properties of that connection. By editing the parameters of the connection
-                                        between IfElse component and the next component connected to IfElse, the user can
-                                        set up conditions for the next component to be used or not. </p>
+                                    <p>
+
+                                        The IfElse component allows the Flow to follow different paths according to a specific parameter. Unlike other components,
+                                        its parameter is defined not on the component, but on the connection between the
+                                        component and the other component it is connected to. If else, if the condition in
+                                        one direction is not met, it automatically enters the other empty branch. </p>
                                     <h6>
                                         Parameters:
                                     </h6>
@@ -1460,7 +1447,7 @@
                                     </li>
 
                                     <li>
-                                        TO - the mobile phone number the BIP message will go to
+                                        TO - The 12-digit phone number in the format 905xxxxxxxxx to which the BIP message will be sent
                                     </li>
                                     <li>
                                         <ul>
@@ -1475,14 +1462,14 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        MESSAGE - the body of the message
+                                        MESSAGE - body of the message
                                     </li>
                                     <li>
                                         <ul>
                                             <li> For example:
                                                 <ul>
                                                     <li>
-                                                        Merhaba, fatura mesaj listesi hazirlandi. Bilginize.
+                                                        Hello, the invoice mailing list has been prepared. For your information.
                                                     </li>
 
                                                 </ul>
@@ -1539,7 +1526,7 @@
                                     </li>
 
                                     <li>
-                                        MSISDN - the mobile phone number the BIP message will go to
+                                        MSISDN - The 12-digit phone number in the format 905xxxxxxxxx to which the SMS message will be sent
                                     </li>
                                     <li>
                                         <ul>
@@ -1554,14 +1541,15 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        SMS TEXT - the body of the SMS text
+                                        SMS TEXT - body of the SMS text
                                     </li>
                                     <li>
                                         <ul>
                                             <li> For example:
                                                 <ul>
                                                     <li>
-                                                        Merhaba, fatura mesaj listesi hazirlandi. Bilginize.
+
+                                                        Hello, the invoice mailing list has been prepared. For your information.
                                                     </li>
 
                                                 </ul>
@@ -1834,8 +1822,10 @@
                         <ol>
                             <li>
                                 <h5 id="line7_7_1">FindString</h5>
-                                <p>The FindString components is used to find string (text) value in a source string (source
-                                    text) </p>
+                                <p>FindString components allow to search text fragments within the output of components that
+                                    make a String output. Thus, it can be checked whether certain keywords are in the relevant
+                                    text.
+                                </p>
                                 <ul>
 
                                     <h6>
@@ -1846,7 +1836,8 @@
                                     </li>
 
                                     <li>
-                                        SOURCE STRING - The source where the user wants look in
+                                        SOURCE STRING - The output values provided by the components that output String are automatically added here. Select the
+                                        output you want to search for text.
                                     </li>
                                     <li>
                                         <ul>
@@ -1861,14 +1852,25 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        FIND STRING - the string user wants to find
+                                        FIND STRING - The text to be searched is written here in single quotes. RegulerExpression can be entered here without quotes.
                                     </li>
                                     <li>
                                         <ul>
                                             <li> For example:
                                                 <ul>
                                                     <li>
+                                                        'Error:404'
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                            <li> RegularExpression can be entered here without quotes. For example:
+                                                <ul>
+                                                    <li>
                                                         .*^(10|20|25).*
+                                                    </li>
+                                                    <li>
+                                                        (? &lt=s ) d+(.*)(?=nolu.*güncel fatura)
                                                     </li>
 
                                                 </ul>
@@ -1928,7 +1930,9 @@
                         <ol>
                             <li>
                                 <h5 id="line7_8_1">LinuxCMD</h5>
-                                <p>The LinuxCMD components is used to run Linux commands</p>
+                                <p>
+
+                                    LinuxCMD components enable the ability to run commands by establishing connections on Linux servers.</p>
                                 <ul>
 
                                     <h6>
@@ -1937,18 +1941,7 @@
                                     <li>
                                         COMPONENT NAME - name of the component. It is generated automatically.
                                     </li>
-                                    <li>
-                                        <ul>
-                                            <li> For example:
-                                                <ul>
-                                                    <li>
-                                                        LinuxCMD_2
-                                                    </li>
 
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
                                     <li>
                                         HOSTNAME - IP Address of the connected Server
                                     </li>
@@ -2053,8 +2046,10 @@
                         <ol>
                             <li>
                                 <h5 id="line7_9_1">GetDate</h5>
-                                <p>The GetDate components is used to convert a date value with a specific format into another
-                                    format </p>
+                                <p>With GetDate components, you can convert the current date or a date you choose to a format
+                                    you want to use in different server, operating system and database systems and use them
+                                    parametrically.
+                                </p>
                                 <ul>
 
                                     <h6>
@@ -2065,8 +2060,9 @@
                                     </li>
 
                                     <li>
-                                        INPUT OPTION - If selected system, current date and time is selected as input option. Otherwise if user selects USER-DEFINED,
-                                        the date-picker opens and user selects the any data they want.
+                                        INPUT OPTION - With it System option, the GetDate component automatically receives the date and time when flow runs. With
+                                        the User Defined oprion, it takes the date and time you selected in the Input Date
+                                        section and always uses this date.
                                     </li>
                                     <li>
                                         <ul>
@@ -2081,26 +2077,13 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        INPUT DATE - Date to be entered as input
+                                        INPUT DATE - Allows you to manually select the date you want.
                                     </li>
-                                    <li>
-                                        <ul>
-                                            <li> For example:
-                                                <ul>
-                                                    <li>
-                                                        Select a date from the drop down calendar.
-                                                    </li>
 
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
                                     <li>
-                                        OUTPUT FORMAT OPTION - The user can select one of the PREBUILT formats or select CUSTOM and types their own OUTPUT FORMAT.
-                                        If the user selects CUSTOM and want to type their own format, they can learn how
-                                        to type the format by clicking the tooltip. If user selects CUSTOM and leaves the
-                                        OUTPUT FORMAT blank, the component outputs on the default format written in the tooltip.
-                                    </li>
+                                        OUTPUT FORMAT OPTION - With its Prebuilt option, it allows you to choose one of the 12 different date and time formats available.
+                                        With the Custom option, you can create your own date and time format with the rules
+                                        in the tooltip below. </li>
                                     <li>
                                         <ul>
                                             <li> For example:
@@ -2114,7 +2097,7 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        OUTPUT FORMAT - The format of the output date and time
+                                        OUTPUT FORMAT - Output date and time format
                                     </li>
                                     <li>
                                         <ul>
